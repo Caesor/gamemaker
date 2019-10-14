@@ -1,28 +1,32 @@
 import * as PIXI from 'pixi.js'
 import Sprite from './sprite';
+import Background from './background';
 
 export default class Scene extends PIXI.Container{
     constructor(id, options) {
         super();
-		const { sprites } = options;
-
-		this.id = id;
-        this.sprites = sprites;
-        
+        this.id = id;
+        this.sprites = options.sprites;
+        this.styles = options.styles;
+       
         this.init();
     }
     
     init() {
-        this.sprites.forEach( it => {
-            const opt = {
-                name: sprite.name,
-                width: sprite.width,
-                height: sprite.height,
+        const that = this;
+        this.sprites.forEach( opt => {
+            let sprite;
+            switch(opt.type) {
+                case 'sprite':
+                    sprite = new Sprite(opt.id, that.styles[opt.currentStyle], opt);
+                    break;
+                case 'background':
+                    sprite = new Background(opt.id, that.styles[opt.currentStyle], opt);
+                    break;
+                    
             }
-
-            const sprite = new Sprite(id, texture, opt);
-
             this.addChild(sprite);
+            
         })
     }
 }

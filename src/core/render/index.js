@@ -3,10 +3,12 @@ import * as PIXI from 'pixi.js'
 import Loader from './loader';
 import Loading from './loading';
 import Scene from './scene';
+import Sprite from './sprite';
 
 export default class app extends PIXI.Application {
     constructor({ width, height, options, config }) {
-        super(width, height, options);
+        super({ width, height, options });
+
         this.config = config;
         // stage 可交互
         this.stage.interactive = true;
@@ -22,15 +24,21 @@ export default class app extends PIXI.Application {
     }
 
     init() {
-        this.loading = new Loading(this);
+        const { width, height } = this.screen;
+
+        this.loading = new Loading(width, height);
+        this.stage.addChild(this.loading);
 
         this.loaderManager = new Loader({
-            onProgress: progress => {
+            onProgress: (progress = 0) => {
+                progress = Math.min(progress, 100);
                 this.loading.show();
                 this.loading.text(progress + '%');
             },
-            onComplete: () => {
+            onComplete: (resource) => {
                 this.loading.hide();
+                // start
+                this.loadScene(this.config.mainScene);
             },
             onError: e => {
                 this.loading.text('网络错误');
@@ -38,36 +46,28 @@ export default class app extends PIXI.Application {
             }
         });
 
-        // this.initScene(this.config.mainScene);
+        // 全部加载
         this.loaderManager.load(this.config.styles);
     }
 
-    start() {
-        if (!this.loaderManager.loader.loading && this.loaderManager.resourcesLoadComplete ) {
-            this.launchFirstScene('1');
-        } else {
-            this.loaderManager.addComplete(() => {
-                this.launchFirstScene('1');
-            });
-        }
-    }
-
-    // initScene(id) {
-    //     const { sprites: all, style } = this.config; 
-    //     const { sprites } = this.config.scenes[id];
-    //     const list = sprites.map( sp => {
-
-    //         return 
-    //     });
-
-    //     this.loaderManager.load(list)
-    // }
-
-    launchFirstScene(id) {
-        const scene = new Scene(id, this.config);
+    loadScene(id) {
+        const spritesList = this.config.scenes[id].sprites;
+        const targets = spritesList.map( id => {
+            const layer = this.config.sprites[id];
+            const origin  = this.config.components[layer.origin];
+            return {
+                ...origin,
+                properties: {
+                    ...origin.properties,
+                    ...layer.properties
+                }
+            };
+        })
+        const scene = new Scene(id, {
+            sprites: targets,
+            styles: this.loaderManager.textures
+        });
 
         this.scenes.addChild(scene);
-
-        this.currentScene = scene;
     }
 }

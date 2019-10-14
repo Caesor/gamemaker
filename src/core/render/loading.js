@@ -1,25 +1,20 @@
 import * as PIXI from 'pixi.js';
 
-export default class Loading {
-    constructor(app) {
-        this.PixelRatio = 1;
-        
-        this.app = app;
-
-        this.C = new PIXI.Container;
-        app.stage.addChild(this.C);
-
-        this.init();
-        this.hide();
+const PixelRatio = 1;
+export default class Loading extends PIXI.Container{
+    constructor(w, h) {
+        super();
+        this.init(w, h);   
     }
-    init() {
+
+    init(w, h) {
         const bg = new PIXI.Sprite(new PIXI.Texture.from('https://wximg.qq.com/wxgame/minigamemaker/preview.jpeg'));
         bg.x = 0;
         bg.y = 0;
-        bg.width = this.app.gameWidth;
-        bg.height = this.app.gameHeight;
+        bg.width = w;
+        bg.height = h;
         bg.anchor.set(0.5);
-        this.C.addChild(bg);
+        this.addChild(bg);
         // text
         const textLabel = new PIXI.Text();
         textLabel.text = "";
@@ -28,7 +23,7 @@ export default class Loading {
         textLabel.y = 100;
         const textLabelStyle = new PIXI.TextStyle({
             fontFamily: 'Arial',
-            fontSize: 12 * this.PixelRatio,
+            fontSize: 12 * PixelRatio,
             fontStyle: '',
             fill: '#EEEEEEE',
             align: 'center',
@@ -37,16 +32,17 @@ export default class Loading {
         });
         textLabel.style = textLabelStyle;
         this.textLabel = textLabel;
-        this.C.addChild(textLabel);
+        this.addChild(textLabel);
 
+        this.hide();
     }
     text(text) {
         this.textLabel.text = text;
     }
     show() {
-        this.C.visible = true;
+        this.visible = true;
     }
     hide() {
-        this.C.visible = false;
+        this.visible = false;
     }
 }

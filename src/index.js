@@ -1,81 +1,19 @@
-import App from './core/render/index';
+import * as PIXI from 'pixi.js'
 
+import App from './core/render/index';
+import Sprite from './core/render/sprite';
+// import config from './game'
+import config from './game1.json'
+
+// const app = new PIXI.Application({
+//     width: 375,
+//     height: 667
+// });
 const app = new App({
     width: 375,
     height: 667,
     options: null,
-    config: {
-        mainScene: 'scene1',
-        scenes: {
-            scene1: {
-                sprites: ['bg', 'hero', 'bullet']
-            }
-        },
-        sprites: {
-            'bg': {
-                name: 'bg',
-                type: 'background',
-                properties: {
-                    x: 0,
-                    y: 0,
-                    width: 750,
-                    height: 1334
-                }
-            },
-            'hero': {
-                name: 'hero',
-                type: 'sprite',
-                properties: {
-                    // x: 0,
-                    // y: 0,
-                    // width: 750,
-                    // height: 1334
-                }
-            },
-            'bullet': {
-                name: 'bullet',
-                type: 'sprite',
-                properties: {
-                    // x: 0,
-                    // y: 0,
-                    // width: 750,
-                    // height: 1334
-                }
-            }
-        },
-        styles: {
-            bg_style: {
-                type: 'background',
-                name: '星空',
-                frame: [
-                    {
-                        id: '1',
-                        url: 'assets/bg.jpg'
-                    }
-                ]
-            },
-            hero_style: {
-                type: 'sprite',
-                name: '主战机',
-                frame: [
-                    {
-                        id: '1',
-                        url: 'assets/hero.png'
-                    }
-                ]
-            },
-            bullet_style: {
-                type: 'sprite',
-                name: '子弹',
-                frame: [    
-                    {
-                        id: '1',
-                        url: 'assets/bullet.png'
-                    }
-                ]
-            }
-        }
-    }
+    config
 });
 
 document.body.appendChild(app.view);
@@ -97,9 +35,12 @@ document.body.appendChild(app.view);
 //     ]
 // })
 
-app.start();
+// app.start();
 
 // create a new Sprite from an image path.
+
+// const scenes = new PIXI.Container;
+//         app.stage.addChild(scenes);
 
 // let sprites = {}
 
@@ -112,14 +53,14 @@ app.start();
 
 // loader.load((loader, resources) => {
 
-//     sprites.bg = PIXI.Sprite.from(resources.bg.texture)
-//     sprites.hero = PIXI.Sprite.from(resources.hero.texture)
-//     sprites.bullet = PIXI.Sprite.from(resources.bullet.texture)
+//     sprites.bg = new Sprite('bg', new PIXI.Texture(new PIXI.BaseTexture(resources.bg.data)), {})
+//     // sprites.bg = Sprite.from(resources.bg.texture)
+//     sprites.hero = new Sprite('hero', new PIXI.Texture(new PIXI.BaseTexture(resources.hero.data)), {})
+//     sprites.bullet = new Sprite('bullet', new PIXI.Texture(new PIXI.BaseTexture(resources.bullet.data)), {})
 
-
-//     app.stage.addChild(sprites.bg);
-//     app.stage.addChild(sprites.hero);
-//     app.stage.addChild(sprites.bullet);
+//     scenes.addChild(sprites.bg);
+//     scenes.addChild(sprites.hero);
+//     scenes.addChild(sprites.bullet);
 // });
 // center the sprite's anchor point
 // start.anchor.set(0.5);

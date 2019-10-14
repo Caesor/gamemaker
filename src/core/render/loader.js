@@ -4,12 +4,14 @@ export default class Loader {
     constructor(opt) {
         this.loader = new PIXI.Loader();
 
+        this.textures = Object.create(null);
+
         this.bindHooks(opt)
     }
 
     bindHooks({ onProgress, onComplete, onError }) {
         this.loader.onProgress.add((e) => {
-            onProgress && onProgress(e.progress);
+            onProgress && onProgress(Math.ceil(e.progress));
         });
 
         this.loader.onError.add(() => {
@@ -24,11 +26,11 @@ export default class Loader {
             for (let key in resources) {
                 this.textures[key] = new PIXI.Texture(new PIXI.BaseTexture(resources[key].data));
             }
-            console.log('总耗时', Date.now() - startTime);
+            console.log('总耗时', Date.now() - startTime, this.textures);
 
             this.resourcesLoadComplete = true;
 
-            onComplete && onComplete();
+            onComplete && onComplete(this.textures);
         });
     }
 
@@ -42,11 +44,17 @@ export default class Loader {
         const list = Object.keys(styles);
 
         for(let i = 0; i < list.length; i++) {
-            this.loader.add(styles[list[i]].frame[0]);
+            // this.loader.add([...styles[list[i]].frame]);
+            const { frame } = styles[list[i]];
+            for(let j = 0; j < frame.length; j++) {
+                this.loader.add(frame[j].id, frame[j].url, {
+                    crossOrigin: true,
+                    loadType: 'image',
+                    xhrType: 'blob'
+                })    
+            }
         }
-        // list.forEach(({id, path}) => {
-        //     this.loader.add(id, path);
-        // });
+
         // 开始加载
         this.loader.load();
     }
