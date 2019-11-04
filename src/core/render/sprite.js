@@ -2,7 +2,7 @@ import * as PIXI from 'pixi.js';
 import Utils from '../utils/';
 
 export default class Sprite extends PIXI.Sprite {
-    constructor(id, texture, opt) {
+    constructor(id, texture, opt={}) {
 
         texture ? super(texture) : super();
         
@@ -19,7 +19,7 @@ export default class Sprite extends PIXI.Sprite {
 
         // this.role_camp = prop.role_camp || "no_camp"; // 阵营
 
-        var rotationValue = prop.rotation / 180 * Math.PI || 0;
+        const rotationValue = prop.rotation / 180 * Math.PI || 0;
         this.rotation = rotationValue; // 旋转角度
 
         this.rotationValue = rotationValue;
@@ -70,18 +70,20 @@ export default class Sprite extends PIXI.Sprite {
         }
 
         if(prop.type != 'background'){
-            if (prop.width) this.width = Utils.math.Strip(prop.width);
-            if (prop.height) this.height = Utils.math.Strip(prop.height);
+            if (prop.width) {
+                this.width = Utils.math.Strip(prop.width);
+            }
+            if (prop.height) {
+                this.height = Utils.math.Strip(prop.height);
+            }
         }
 
         if (prop.mirror === 3) {
             this.scale.y *= -1;
             this.scale.x *= -1;
-        }
-        else if (prop.mirror === 2) {
+        } else if (prop.mirror === 2) {
             this.scale.y *= -1;
-        }
-        else if (prop.mirror) {
+        } else if (prop.mirror) {
             this.scale.x *= -1;
         }
 
@@ -97,13 +99,10 @@ export default class Sprite extends PIXI.Sprite {
     setScale(scale) {
         this.scale.set(scale.x , scale.y);
 
-
         this.position.x += this.pivot.x * (this.scale.x - 1);
         this.position.y += this.pivot.y * (this.scale.y - 1);
 
         this.x = this.position.x;
         this.y = this.position.y;
-
-        //console.log(this.x, this.y);
     }
 }

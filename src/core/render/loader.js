@@ -47,9 +47,10 @@ export default class Loader {
             // this.loader.add([...styles[list[i]].frame]);
             const { frame } = styles[list[i]];
             for(let j = 0; j < frame.length; j++) {
+                
                 this.loader.add(frame[j].id, frame[j].url, {
                     crossOrigin: true,
-                    loadType: 'image',
+                    loadType: 2, // image
                     xhrType: 'blob'
                 })    
             }

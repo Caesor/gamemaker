@@ -65,7 +65,8 @@ export default class app extends PIXI.Application {
         })
         const scene = new Scene(id, {
             sprites: targets,
-            styles: this.loaderManager.textures
+            textures: this.loaderManager.textures,
+            styles: this.config.styles
         });
 
         this.scenes.addChild(scene);

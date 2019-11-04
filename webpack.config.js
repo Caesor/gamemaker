@@ -13,7 +13,7 @@ const webpack = require('webpack');
  * https://webpack.js.org/plugins/split-chunks-plugin/
  *
  */
-
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
@@ -30,7 +30,8 @@ module.exports = {
 	mode: 'development',
 
 	entry: {
-		index: './src/index.js'
+		index: './src/index.js',
+		collision: './src/core/collision/index.js'
 	},
 
 	output: {
@@ -39,11 +40,17 @@ module.exports = {
 	},
 
 	plugins: [
+		new CleanWebpackPlugin(),
 		new webpack.ProgressPlugin(),
-		new HtmlWebpackPlugin(),
 		new CopyPlugin([
 			{ from: './src/assets', to: 'assets' }
 		]),
+		new HtmlWebpackPlugin(),
+		new HtmlWebpackPlugin({
+			filename: 'test.html',
+			template: 'src/index.html',
+			chunks: ['collision']
+		})
 	],
 
 	module: {

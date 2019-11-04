@@ -7,21 +7,24 @@ export default class Scene extends PIXI.Container{
         super();
         this.id = id;
         this.sprites = options.sprites;
-        this.styles = options.styles;
+        this.textures = options.textures;
+        this.styles = options.styles
        
         this.init();
     }
     
     init() {
-        const that = this;
         this.sprites.forEach( opt => {
             let sprite;
+            const { type, id, currentStyle } = opt;
             switch(opt.type) {
                 case 'sprite':
-                    sprite = new Sprite(opt.id, that.styles[opt.currentStyle], opt);
+                    // get first frame
+                    let texture = this.textures[this.styles[opt.currentStyle].frame[0].id];
+                    sprite = new Sprite(opt.id, texture, opt);
                     break;
                 case 'background':
-                    sprite = new Background(opt.id, that.styles[opt.currentStyle], opt);
+                    sprite = new Background(opt.id, this.textures[opt.currentStyle], opt);
                     break;
                     
             }

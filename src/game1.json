@@ -3,11 +3,14 @@
         "id": "lbQMxbu999S-aIa4j6H1-yvg",
         "type": 1,
         "behaviors": {},
-        "last_edit_version": 1,
+        "last_edit_version": 3,
         "last_share_version": 0,
         "horizontal": false,
         "projectName": "learning",
         "code_type": 0,
+        "team_manage_list": [],
+        "team_member_list": [],
+        "group_id": 0,
         "codeType": 0
     },
     "mainScene": "hm_s#bkB_,J~5=a=ZvE!",
@@ -18,19 +21,9 @@
                 "qOCNQept?1h_#u;F2G3)",
                 "z5-O00T%P~E?|WdfDfmj",
                 "BtSn{x~onsC[8rU?~-yg",
-                "fO=mf[kGjI2,tS8paRAR",
-                ".=E1fk4SnI9KEGLjYD|e",
-                "hI:Ct:mPg_?%[uqSv@q|",
                 "PaqO]{_3!;2]:fh;3sS!",
-                "0%4yzusmC9y@HXO[sz#]",
-                "B%f{^;9v(r6/YF=;;@A1",
-                ":OCa,UN,@yBzp(hpe*7O",
-                "(kfY2twV]x5b]S(:x=zi",
-                "x!w|59)BcD*1HAVQqW16",
                 ";jY;a8UU38K=;SZ8v=_e",
-                "k0xpN-!NpSuYQgqw(E.:",
-                "1{?eV~hu8.(4Nbab)?+Y",
-                "E~kBD+3J(31hRpey~av4"
+                "k0xpN-!NpSuYQgqw(E.:"
             ],
             "backgroundColor": "465070",
             "zIndex": 1
@@ -134,7 +127,7 @@
                     "inputs": {
                         "SUBSTACK": {
                             "name": "SUBSTACK",
-                            "block": "@aUzi1QAVR1cvFf}~LvL",
+                            "block": "8col#v.X3O:zyQO5.bKC",
                             "shadow": null
                         }
                     },
@@ -164,7 +157,7 @@
                     },
                     "next": null,
                     "opcode": "looks_animation",
-                    "parent": "@aUzi1QAVR1cvFf}~LvL",
+                    "parent": "8col#v.X3O:zyQO5.bKC",
                     "shadow": false,
                     "topLevel": false
                 },
@@ -183,6 +176,24 @@
                     "parent": "@aUzi1QAVR1cvFf}~LvL",
                     "shadow": true,
                     "topLevel": false
+                },
+                "8col#v.X3O:zyQO5.bKC": {
+                    "id": "8col#v.X3O:zyQO5.bKC",
+                    "category": "control",
+                    "opcode": "control_set_dragmode",
+                    "inputs": {},
+                    "fields": {
+                        "OPTION_LIST": {
+                            "name": "OPTION_LIST",
+                            "value": "_any_"
+                        }
+                    },
+                    "next": "@aUzi1QAVR1cvFf}~LvL",
+                    "topLevel": false,
+                    "parent": "OF7JmbxC/ngrx2V;ia^r",
+                    "shadow": false,
+                    "x": "535",
+                    "y": "58"
                 }
             },
             "behaviors": {},
@@ -241,210 +252,6 @@
             ],
             "currentStyle": "1_-_-ChDlYbweskFOHrAp9zYDEGWZEAEY4NCD5AU",
             "pinyin": "JS"
-        },
-        "6wAM3[ir?yliK@7f6D@;": {
-            "id": "6wAM3[ir?yliK@7f6D@;",
-            "type": "sprite",
-            "name": "GAMEOVER",
-            "properties": {
-                "width": 724,
-                "height": 70,
-                "_width": 724,
-                "_height": 70,
-                "x": 0,
-                "y": 0,
-                "rotation": 0,
-                "scale": {
-                    "x": 1,
-                    "y": 1
-                },
-                "pivot": {
-                    "x": 0,
-                    "y": 0
-                },
-                "align": 0,
-                "smooth": false,
-                "unequal": false,
-                "alpha": 1,
-                "mirror": 0,
-                "repeat": 1,
-                "backgroundColor": {
-                    "alpha": 1,
-                    "hex": "#FFFFFF",
-                    "rgba": "rgba(255,255,255,1)"
-                },
-                "visible": true
-            },
-            "layers": [
-                "fO=mf[kGjI2,tS8paRAR"
-            ],
-            "scripts": [],
-            "variables": {},
-            "blocks": {},
-            "behaviors": {},
-            "code": [],
-            "children": [],
-            "styles": [
-                "1_-_-ChC4UzXqF3JGwZ5HoB3YtGbPEAEY6tCD5AU"
-            ],
-            "currentStyle": "1_-_-ChC4UzXqF3JGwZ5HoB3YtGbPEAEY6tCD5AU",
-            "pinyin": "!GA"
-        },
-        "r1ecC|mrc@41VOGv:eQs": {
-            "id": "r1ecC|mrc@41VOGv:eQs",
-            "type": "sprite",
-            "name": "双弹包爆炸",
-            "properties": {
-                "width": 252,
-                "height": 342,
-                "_width": 252,
-                "_height": 342,
-                "x": 0,
-                "y": 0,
-                "rotation": 0,
-                "scale": {
-                    "x": 1,
-                    "y": 1
-                },
-                "pivot": {
-                    "x": 0,
-                    "y": 0
-                },
-                "align": 0,
-                "smooth": false,
-                "unequal": false,
-                "alpha": 1,
-                "mirror": 0,
-                "repeat": 1,
-                "backgroundColor": {
-                    "alpha": 1,
-                    "hex": "#FFFFFF",
-                    "rgba": "rgba(255,255,255,1)"
-                },
-                "visible": true
-            },
-            "layers": [
-                ".=E1fk4SnI9KEGLjYD|e"
-            ],
-            "scripts": [
-                "vg(9{KUje)4kz@b~kKGn"
-            ],
-            "variables": {},
-            "blocks": {
-                "vg(9{KUje)4kz@b~kKGn": {
-                    "category": "events",
-                    "fields": {},
-                    "id": "vg(9{KUje)4kz@b~kKGn",
-                    "inputs": {
-                        "SUBSTACK": {
-                            "name": "SUBSTACK",
-                            "block": ":*3)vs/6Xfj4m}1`g;B_",
-                            "shadow": null
-                        }
-                    },
-                    "next": null,
-                    "opcode": "event_whenflagclicked",
-                    "parent": null,
-                    "shadow": false,
-                    "topLevel": true,
-                    "x": 20,
-                    "y": 20
-                },
-                ":*3)vs/6Xfj4m}1`g;B_": {
-                    "category": "animation",
-                    "fields": {
-                        "OPTION_LIST": {
-                            "name": "OPTION_LIST",
-                            "value": "_loop_"
-                        }
-                    },
-                    "id": ":*3)vs/6Xfj4m}1`g;B_",
-                    "inputs": {
-                        "SECS": {
-                            "name": "SECS",
-                            "block": "`Wl3xizk}tP:`Nq8sv|2",
-                            "shadow": "`Wl3xizk}tP:`Nq8sv|2"
-                        }
-                    },
-                    "next": null,
-                    "opcode": "looks_animation",
-                    "parent": ":*3)vs/6Xfj4m}1`g;B_",
-                    "shadow": false,
-                    "topLevel": false
-                },
-                "`Wl3xizk}tP:`Nq8sv|2": {
-                    "category": "null",
-                    "fields": {
-                        "NUM": {
-                            "name": "NUM",
-                            "value": 1
-                        }
-                    },
-                    "id": "`Wl3xizk}tP:`Nq8sv|2",
-                    "inputs": {},
-                    "next": null,
-                    "opcode": "math_number",
-                    "parent": ":*3)vs/6Xfj4m}1`g;B_",
-                    "shadow": true,
-                    "topLevel": false
-                }
-            },
-            "behaviors": {},
-            "code": [],
-            "children": [],
-            "styles": [
-                "-_-ChCzlblY_ZJPyragHbmQ7rzXEAEYuNCD5AU"
-            ],
-            "currentStyle": "-_-ChCzlblY_ZJPyragHbmQ7rzXEAEYuNCD5AU",
-            "pinyin": "SD"
-        },
-        "q=l!U.??P7q`/Ppdi}8s": {
-            "id": "q=l!U.??P7q`/Ppdi}8s",
-            "type": "sprite",
-            "name": "回到微信",
-            "properties": {
-                "width": 292,
-                "height": 66,
-                "_width": 292,
-                "_height": 66,
-                "x": 0,
-                "y": 0,
-                "rotation": 0,
-                "scale": {
-                    "x": 1,
-                    "y": 1
-                },
-                "pivot": {
-                    "x": 0,
-                    "y": 0
-                },
-                "align": 0,
-                "smooth": false,
-                "unequal": false,
-                "alpha": 1,
-                "mirror": 0,
-                "repeat": 1,
-                "backgroundColor": {
-                    "alpha": 1,
-                    "hex": "#FFFFFF",
-                    "rgba": "rgba(255,255,255,1)"
-                },
-                "visible": true
-            },
-            "layers": [
-                "hI:Ct:mPg_?%[uqSv@q|"
-            ],
-            "scripts": [],
-            "variables": {},
-            "blocks": {},
-            "behaviors": {},
-            "code": [],
-            "children": [],
-            "styles": [
-                "1_-_-ChDk2RVrmcxMnpiLIZE8DGXwEAEY6tCD5AU"
-            ],
-            "currentStyle": "1_-_-ChDk2RVrmcxMnpiLIZE8DGXwEAEY6tCD5AU",
-            "pinyin": "HD"
         },
         "R^}}Qnro-vSP4KBC}pL.": {
             "id": "R^}}Qnro-vSP4KBC}pL.",
@@ -553,306 +360,6 @@
             ],
             "currentStyle": "-_-ChCmXVijLN9G_ojoqWR15A8zEAEYv9CD5AU",
             "pinyin": "DD"
-        },
-        "h(9I|r7XziegBkWd_1;I": {
-            "id": "h(9I|r7XziegBkWd_1;I",
-            "type": "sprite",
-            "name": "开始",
-            "properties": {
-                "width": 192,
-                "height": 74,
-                "_width": 192,
-                "_height": 74,
-                "x": 0,
-                "y": 0,
-                "rotation": 0,
-                "scale": {
-                    "x": 1,
-                    "y": 1
-                },
-                "pivot": {
-                    "x": 0,
-                    "y": 0
-                },
-                "align": 0,
-                "smooth": false,
-                "unequal": false,
-                "alpha": 1,
-                "mirror": 0,
-                "repeat": 1,
-                "backgroundColor": {
-                    "alpha": 1,
-                    "hex": "#FFFFFF",
-                    "rgba": "rgba(255,255,255,1)"
-                },
-                "visible": true
-            },
-            "layers": [
-                "0%4yzusmC9y@HXO[sz#]"
-            ],
-            "scripts": [],
-            "variables": {},
-            "blocks": {},
-            "behaviors": {},
-            "code": [],
-            "children": [],
-            "styles": [
-                "1_-_-ChDvGNGIgn5P4I7_UwBLBQuKEAEY6tCD5AU"
-            ],
-            "currentStyle": "1_-_-ChDvGNGIgn5P4I7_UwBLBQuKEAEY6tCD5AU",
-            "pinyin": "KS"
-        },
-        "n~_VznWw*d83qarsGm96": {
-            "id": "n~_VznWw*d83qarsGm96",
-            "type": "sprite",
-            "name": "开始键",
-            "properties": {
-                "width": 230,
-                "height": 216,
-                "_width": 230,
-                "_height": 216,
-                "x": 0,
-                "y": 0,
-                "rotation": 0,
-                "scale": {
-                    "x": 1,
-                    "y": 1
-                },
-                "pivot": {
-                    "x": 0,
-                    "y": 0
-                },
-                "align": 0,
-                "smooth": false,
-                "unequal": false,
-                "alpha": 1,
-                "mirror": 0,
-                "repeat": 1,
-                "backgroundColor": {
-                    "alpha": 1,
-                    "hex": "#FFFFFF",
-                    "rgba": "rgba(255,255,255,1)"
-                },
-                "visible": true
-            },
-            "layers": [
-                "B%f{^;9v(r6/YF=;;@A1"
-            ],
-            "scripts": [],
-            "variables": {},
-            "blocks": {},
-            "behaviors": {},
-            "code": [],
-            "children": [],
-            "styles": [
-                "1_-_-ChCtjEe8onpHRLoTpoYu1EIOEAEY6tCD5AU"
-            ],
-            "currentStyle": "1_-_-ChCtjEe8onpHRLoTpoYu1EIOEAEY6tCD5AU",
-            "pinyin": "KS"
-        },
-        "?eSl}J}`2}yWfNsABBlt": {
-            "id": "?eSl}J}`2}yWfNsABBlt",
-            "type": "sprite",
-            "name": "彩色炸弹",
-            "properties": {
-                "width": 270,
-                "height": 350,
-                "_width": 270,
-                "_height": 350,
-                "x": 0,
-                "y": 0,
-                "rotation": 0,
-                "scale": {
-                    "x": 1,
-                    "y": 1
-                },
-                "pivot": {
-                    "x": 0,
-                    "y": 0
-                },
-                "align": 0,
-                "smooth": false,
-                "unequal": false,
-                "alpha": 1,
-                "mirror": 0,
-                "repeat": 1,
-                "backgroundColor": {
-                    "alpha": 1,
-                    "hex": "#FFFFFF",
-                    "rgba": "rgba(255,255,255,1)"
-                },
-                "visible": true
-            },
-            "layers": [
-                ":OCa,UN,@yBzp(hpe*7O"
-            ],
-            "scripts": [
-                "A#WXMisLL5|(EF6JQnBm"
-            ],
-            "variables": {},
-            "blocks": {
-                "A#WXMisLL5|(EF6JQnBm": {
-                    "category": "events",
-                    "fields": {},
-                    "id": "A#WXMisLL5|(EF6JQnBm",
-                    "inputs": {
-                        "SUBSTACK": {
-                            "name": "SUBSTACK",
-                            "block": "V]Xj@liOJ3S!CMNvf;!(",
-                            "shadow": null
-                        }
-                    },
-                    "next": null,
-                    "opcode": "event_whenflagclicked",
-                    "parent": null,
-                    "shadow": false,
-                    "topLevel": true,
-                    "x": 20,
-                    "y": 20
-                },
-                "V]Xj@liOJ3S!CMNvf;!(": {
-                    "category": "animation",
-                    "fields": {
-                        "OPTION_LIST": {
-                            "name": "OPTION_LIST",
-                            "value": "_loop_"
-                        }
-                    },
-                    "id": "V]Xj@liOJ3S!CMNvf;!(",
-                    "inputs": {
-                        "SECS": {
-                            "name": "SECS",
-                            "block": "5[tcmnZEsNQFmS.J[mb^",
-                            "shadow": "5[tcmnZEsNQFmS.J[mb^"
-                        }
-                    },
-                    "next": null,
-                    "opcode": "looks_animation",
-                    "parent": "V]Xj@liOJ3S!CMNvf;!(",
-                    "shadow": false,
-                    "topLevel": false
-                },
-                "5[tcmnZEsNQFmS.J[mb^": {
-                    "category": "null",
-                    "fields": {
-                        "NUM": {
-                            "name": "NUM",
-                            "value": 1
-                        }
-                    },
-                    "id": "5[tcmnZEsNQFmS.J[mb^",
-                    "inputs": {},
-                    "next": null,
-                    "opcode": "math_number",
-                    "parent": "V]Xj@liOJ3S!CMNvf;!(",
-                    "shadow": true,
-                    "topLevel": false
-                }
-            },
-            "behaviors": {},
-            "code": [],
-            "children": [],
-            "styles": [
-                "-_-ChDxUVtx35BLIbQu5XKxQ_SXEAEYx9CD5AU"
-            ],
-            "currentStyle": "-_-ChDxUVtx35BLIbQu5XKxQ_SXEAEYx9CD5AU",
-            "pinyin": "CS"
-        },
-        "h6^D+S8q#ZNcl=%o0?Ks": {
-            "id": "h6^D+S8q#ZNcl=%o0?Ks",
-            "type": "sprite",
-            "name": "暂停按钮",
-            "properties": {
-                "width": 230,
-                "height": 216,
-                "_width": 230,
-                "_height": 216,
-                "x": 0,
-                "y": 0,
-                "rotation": 0,
-                "scale": {
-                    "x": 1,
-                    "y": 1
-                },
-                "pivot": {
-                    "x": 0,
-                    "y": 0
-                },
-                "align": 0,
-                "smooth": false,
-                "unequal": false,
-                "alpha": 1,
-                "mirror": 0,
-                "repeat": 1,
-                "backgroundColor": {
-                    "alpha": 1,
-                    "hex": "#FFFFFF",
-                    "rgba": "rgba(255,255,255,1)"
-                },
-                "visible": true
-            },
-            "layers": [
-                "(kfY2twV]x5b]S(:x=zi"
-            ],
-            "scripts": [],
-            "variables": {},
-            "blocks": {},
-            "behaviors": {},
-            "code": [],
-            "children": [],
-            "styles": [
-                "1_-_-ChDEbrbddldB4pCXstmlJBrUEAEY6tCD5AU"
-            ],
-            "currentStyle": "1_-_-ChDEbrbddldB4pCXstmlJBrUEAEY6tCD5AU",
-            "pinyin": "ZT"
-        },
-        ":nH/NOUzLonRGYbF)UC)": {
-            "id": ":nH/NOUzLonRGYbF)UC)",
-            "type": "sprite",
-            "name": "游戏标题",
-            "properties": {
-                "width": 1242,
-                "height": 442,
-                "_width": 1242,
-                "_height": 442,
-                "x": 0,
-                "y": 0,
-                "rotation": 0,
-                "scale": {
-                    "x": 1,
-                    "y": 1
-                },
-                "pivot": {
-                    "x": 0,
-                    "y": 0
-                },
-                "align": 0,
-                "smooth": false,
-                "unequal": false,
-                "alpha": 1,
-                "mirror": 0,
-                "repeat": 1,
-                "backgroundColor": {
-                    "alpha": 1,
-                    "hex": "#FFFFFF",
-                    "rgba": "rgba(255,255,255,1)"
-                },
-                "visible": true
-            },
-            "layers": [
-                "x!w|59)BcD*1HAVQqW16"
-            ],
-            "scripts": [],
-            "variables": {},
-            "blocks": {},
-            "behaviors": {},
-            "code": [],
-            "children": [],
-            "styles": [
-                "1_-_-ChCBdb3kXohD-q8jytpOoVECEAEY6tCD5AU"
-            ],
-            "currentStyle": "1_-_-ChCBdb3kXohD-q8jytpOoVECEAEY6tCD5AU",
-            "pinyin": "YX"
         },
         ",v@:H8]AiSIIE-Jm+L;|": {
             "id": ",v@:H8]AiSIIE-Jm+L;|",
@@ -1009,162 +516,6 @@
             ],
             "currentStyle": "-_-ChDT09_PIf9PHKhnTGWkgi6xEAEYtNSD5AU",
             "pinyin": "LS"
-        },
-        "CCL_)1p5-_wg77.qOo=E": {
-            "id": "CCL_)1p5-_wg77.qOo=E",
-            "type": "sprite",
-            "name": "金色子弹-1",
-            "properties": {
-                "width": 12,
-                "height": 42,
-                "_width": 12,
-                "_height": 42,
-                "x": 0,
-                "y": 0,
-                "rotation": 0,
-                "scale": {
-                    "x": 1,
-                    "y": 1
-                },
-                "pivot": {
-                    "x": 0,
-                    "y": 0
-                },
-                "align": 0,
-                "smooth": false,
-                "unequal": false,
-                "alpha": 1,
-                "mirror": 0,
-                "repeat": 1,
-                "backgroundColor": {
-                    "alpha": 1,
-                    "hex": "#FFFFFF",
-                    "rgba": "rgba(255,255,255,1)"
-                },
-                "visible": true
-            },
-            "layers": [
-                "1{?eV~hu8.(4Nbab)?+Y"
-            ],
-            "scripts": [],
-            "variables": {},
-            "blocks": {},
-            "behaviors": {},
-            "code": [],
-            "children": [],
-            "styles": [
-                "1_-_-ChDlYbweskFOHrAp9zYDEGWZEAEY4NCD5AU"
-            ],
-            "currentStyle": "1_-_-ChDlYbweskFOHrAp9zYDEGWZEAEY4NCD5AU",
-            "pinyin": "JS"
-        },
-        "Z|o[[D+vaA6NNA+o/;?)": {
-            "id": "Z|o[[D+vaA6NNA+o/;?)",
-            "type": "sprite",
-            "name": "陨石",
-            "properties": {
-                "width": 290,
-                "height": 336,
-                "_width": 290,
-                "_height": 336,
-                "x": 0,
-                "y": 0,
-                "rotation": 0,
-                "scale": {
-                    "x": 1,
-                    "y": 1
-                },
-                "pivot": {
-                    "x": 0,
-                    "y": 0
-                },
-                "align": 0,
-                "smooth": false,
-                "unequal": false,
-                "alpha": 1,
-                "mirror": 0,
-                "repeat": 1,
-                "backgroundColor": {
-                    "alpha": 1,
-                    "hex": "#FFFFFF",
-                    "rgba": "rgba(255,255,255,1)"
-                },
-                "visible": true
-            },
-            "layers": [
-                "E~kBD+3J(31hRpey~av4"
-            ],
-            "scripts": [
-                "`Fsv%e/QHY_(+6kngV2z"
-            ],
-            "variables": {},
-            "blocks": {
-                "`Fsv%e/QHY_(+6kngV2z": {
-                    "category": "events",
-                    "fields": {},
-                    "id": "`Fsv%e/QHY_(+6kngV2z",
-                    "inputs": {
-                        "SUBSTACK": {
-                            "name": "SUBSTACK",
-                            "block": "#~{?s5N5%mrZUBY^m(*(",
-                            "shadow": null
-                        }
-                    },
-                    "next": null,
-                    "opcode": "event_whenflagclicked",
-                    "parent": null,
-                    "shadow": false,
-                    "topLevel": true,
-                    "x": 20,
-                    "y": 20
-                },
-                "#~{?s5N5%mrZUBY^m(*(": {
-                    "category": "animation",
-                    "fields": {
-                        "OPTION_LIST": {
-                            "name": "OPTION_LIST",
-                            "value": "_loop_"
-                        }
-                    },
-                    "id": "#~{?s5N5%mrZUBY^m(*(",
-                    "inputs": {
-                        "SECS": {
-                            "name": "SECS",
-                            "block": "Yd5T`FX+E_jX0UtnVST0",
-                            "shadow": "Yd5T`FX+E_jX0UtnVST0"
-                        }
-                    },
-                    "next": null,
-                    "opcode": "looks_animation",
-                    "parent": "#~{?s5N5%mrZUBY^m(*(",
-                    "shadow": false,
-                    "topLevel": false
-                },
-                "Yd5T`FX+E_jX0UtnVST0": {
-                    "category": "null",
-                    "fields": {
-                        "NUM": {
-                            "name": "NUM",
-                            "value": 1
-                        }
-                    },
-                    "id": "Yd5T`FX+E_jX0UtnVST0",
-                    "inputs": {},
-                    "next": null,
-                    "opcode": "math_number",
-                    "parent": "#~{?s5N5%mrZUBY^m(*(",
-                    "shadow": true,
-                    "topLevel": false
-                }
-            },
-            "behaviors": {},
-            "code": [],
-            "children": [],
-            "styles": [
-                "-_-ChBsG6sITYxNuI283XYjIwJ0EAEY3NCD5AU"
-            ],
-            "currentStyle": "-_-ChBsG6sITYxNuI283XYjIwJ0EAEY3NCD5AU",
-            "pinyin": "YS"
         }
     },
     "styles": {
@@ -1194,7 +545,7 @@
                     "url": "https://gamemaker.qpic.cn/luban/1_-_-ChDlYbweskFOHrAp9zYDEGWZEAEY4NCD5AU"
                 }
             ],
-            "count": 2
+            "count": 1
         },
         "1_-_-ChCJ_doYb2pGL4NVr75K0kLhEAEYy8ye5AU": {
             "id": "1_-_-ChCJ_doYb2pGL4NVr75K0kLhEAEYy8ye5AU",
@@ -1204,58 +555,6 @@
                 {
                     "id": "1_-_-ChCJ_doYb2pGL4NVr75K0kLhEAEYy8ye5AU",
                     "url": "https://gamemaker.qpic.cn/luban/1_-_-ChCJ_doYb2pGL4NVr75K0kLhEAEYy8ye5AU"
-                }
-            ],
-            "count": 1
-        },
-        "1_-_-ChC4UzXqF3JGwZ5HoB3YtGbPEAEY6tCD5AU": {
-            "id": "1_-_-ChC4UzXqF3JGwZ5HoB3YtGbPEAEY6tCD5AU",
-            "type": "sprite",
-            "name": "GAMEOVER",
-            "frame": [
-                {
-                    "id": "1_-_-ChC4UzXqF3JGwZ5HoB3YtGbPEAEY6tCD5AU",
-                    "url": "https://gamemaker.qpic.cn/luban/1_-_-ChC4UzXqF3JGwZ5HoB3YtGbPEAEY6tCD5AU"
-                }
-            ],
-            "count": 1
-        },
-        "-_-ChCzlblY_ZJPyragHbmQ7rzXEAEYuNCD5AU": {
-            "id": "-_-ChCzlblY_ZJPyragHbmQ7rzXEAEYuNCD5AU",
-            "type": "sprite",
-            "name": "双弹包爆炸",
-            "frame": [
-                {
-                    "id": "1_-_-ChDbpyjnuPpNA5b28OtKiISWEAEYuNCD5AU",
-                    "url": "https://gamemaker.qpic.cn/luban/1_-_-ChDbpyjnuPpNA5b28OtKiISWEAEYuNCD5AU"
-                },
-                {
-                    "id": "1_-_-ChDvTFZRIwtDdbjDeuCMRYnsEAEYuNCD5AU",
-                    "url": "https://gamemaker.qpic.cn/luban/1_-_-ChDvTFZRIwtDdbjDeuCMRYnsEAEYuNCD5AU"
-                },
-                {
-                    "id": "1_-_-ChBM_cKMEoBNfZeJ4EVVZzurEAEYuNCD5AU",
-                    "url": "https://gamemaker.qpic.cn/luban/1_-_-ChBM_cKMEoBNfZeJ4EVVZzurEAEYuNCD5AU"
-                },
-                {
-                    "id": "1_-_-ChB8prHgskpMZq4SbdDsfvPrEAEYuNCD5AU",
-                    "url": "https://gamemaker.qpic.cn/luban/1_-_-ChB8prHgskpMZq4SbdDsfvPrEAEYuNCD5AU"
-                },
-                {
-                    "id": "1_-_-ChCgtmaQgn1DvbB3UajNrxGzEAEYuNCD5AU",
-                    "url": "https://gamemaker.qpic.cn/luban/1_-_-ChCgtmaQgn1DvbB3UajNrxGzEAEYuNCD5AU"
-                }
-            ],
-            "count": 1
-        },
-        "1_-_-ChDk2RVrmcxMnpiLIZE8DGXwEAEY6tCD5AU": {
-            "id": "1_-_-ChDk2RVrmcxMnpiLIZE8DGXwEAEY6tCD5AU",
-            "type": "sprite",
-            "name": "回到微信",
-            "frame": [
-                {
-                    "id": "1_-_-ChDk2RVrmcxMnpiLIZE8DGXwEAEY6tCD5AU",
-                    "url": "https://gamemaker.qpic.cn/luban/1_-_-ChDk2RVrmcxMnpiLIZE8DGXwEAEY6tCD5AU"
                 }
             ],
             "count": 1
@@ -1284,82 +583,6 @@
                 {
                     "id": "1_-_-ChBrUfp8fapPiKVq6-r9pcVQEAEYv9CD5AU",
                     "url": "https://gamemaker.qpic.cn/luban/1_-_-ChBrUfp8fapPiKVq6-r9pcVQEAEYv9CD5AU"
-                }
-            ],
-            "count": 1
-        },
-        "1_-_-ChDvGNGIgn5P4I7_UwBLBQuKEAEY6tCD5AU": {
-            "id": "1_-_-ChDvGNGIgn5P4I7_UwBLBQuKEAEY6tCD5AU",
-            "type": "sprite",
-            "name": "开始",
-            "frame": [
-                {
-                    "id": "1_-_-ChDvGNGIgn5P4I7_UwBLBQuKEAEY6tCD5AU",
-                    "url": "https://gamemaker.qpic.cn/luban/1_-_-ChDvGNGIgn5P4I7_UwBLBQuKEAEY6tCD5AU"
-                }
-            ],
-            "count": 1
-        },
-        "1_-_-ChCtjEe8onpHRLoTpoYu1EIOEAEY6tCD5AU": {
-            "id": "1_-_-ChCtjEe8onpHRLoTpoYu1EIOEAEY6tCD5AU",
-            "type": "sprite",
-            "name": "开始键",
-            "frame": [
-                {
-                    "id": "1_-_-ChCtjEe8onpHRLoTpoYu1EIOEAEY6tCD5AU",
-                    "url": "https://gamemaker.qpic.cn/luban/1_-_-ChCtjEe8onpHRLoTpoYu1EIOEAEY6tCD5AU"
-                }
-            ],
-            "count": 1
-        },
-        "-_-ChDxUVtx35BLIbQu5XKxQ_SXEAEYx9CD5AU": {
-            "id": "-_-ChDxUVtx35BLIbQu5XKxQ_SXEAEYx9CD5AU",
-            "type": "sprite",
-            "name": "彩色炸弹",
-            "frame": [
-                {
-                    "id": "1_-_-ChDtLjHhm5VFJoq8gMRDMYAWEAEYx9CD5AU",
-                    "url": "https://gamemaker.qpic.cn/luban/1_-_-ChDtLjHhm5VFJoq8gMRDMYAWEAEYx9CD5AU"
-                },
-                {
-                    "id": "1_-_-ChBcF07xkXBNhpQf-fEeR0PBEAEYx9CD5AU",
-                    "url": "https://gamemaker.qpic.cn/luban/1_-_-ChBcF07xkXBNhpQf-fEeR0PBEAEYx9CD5AU"
-                },
-                {
-                    "id": "1_-_-ChAI-idx4WZGorra1EQX4bjZEAEYx9CD5AU",
-                    "url": "https://gamemaker.qpic.cn/luban/1_-_-ChAI-idx4WZGorra1EQX4bjZEAEYx9CD5AU"
-                },
-                {
-                    "id": "1_-_-ChC6nQjzWAtGB6fJ6Kib-NiMEAEYx9CD5AU",
-                    "url": "https://gamemaker.qpic.cn/luban/1_-_-ChC6nQjzWAtGB6fJ6Kib-NiMEAEYx9CD5AU"
-                },
-                {
-                    "id": "1_-_-ChCjKPsO8CNLnaUvGrMsTpRmEAEYx9CD5AU",
-                    "url": "https://gamemaker.qpic.cn/luban/1_-_-ChCjKPsO8CNLnaUvGrMsTpRmEAEYx9CD5AU"
-                }
-            ],
-            "count": 1
-        },
-        "1_-_-ChDEbrbddldB4pCXstmlJBrUEAEY6tCD5AU": {
-            "id": "1_-_-ChDEbrbddldB4pCXstmlJBrUEAEY6tCD5AU",
-            "type": "sprite",
-            "name": "暂停按钮",
-            "frame": [
-                {
-                    "id": "1_-_-ChDEbrbddldB4pCXstmlJBrUEAEY6tCD5AU",
-                    "url": "https://gamemaker.qpic.cn/luban/1_-_-ChDEbrbddldB4pCXstmlJBrUEAEY6tCD5AU"
-                }
-            ],
-            "count": 1
-        },
-        "1_-_-ChCBdb3kXohD-q8jytpOoVECEAEY6tCD5AU": {
-            "id": "1_-_-ChCBdb3kXohD-q8jytpOoVECEAEY6tCD5AU",
-            "type": "sprite",
-            "name": "游戏标题",
-            "frame": [
-                {
-                    "id": "1_-_-ChCBdb3kXohD-q8jytpOoVECEAEY6tCD5AU",
-                    "url": "https://gamemaker.qpic.cn/luban/1_-_-ChCBdb3kXohD-q8jytpOoVECEAEY6tCD5AU"
                 }
             ],
             "count": 1
@@ -1403,34 +626,6 @@
                 }
             ],
             "count": 1
-        },
-        "-_-ChBsG6sITYxNuI283XYjIwJ0EAEY3NCD5AU": {
-            "id": "-_-ChBsG6sITYxNuI283XYjIwJ0EAEY3NCD5AU",
-            "type": "sprite",
-            "name": "陨石",
-            "frame": [
-                {
-                    "id": "1_-_-ChArbvxLmltJ_5BzqXgH2vEnEAEY29CD5AU",
-                    "url": "https://gamemaker.qpic.cn/luban/1_-_-ChArbvxLmltJ_5BzqXgH2vEnEAEY29CD5AU"
-                },
-                {
-                    "id": "1_-_-ChBhGhoAI8lJV5pj0Urnu5elEAEY29CD5AU",
-                    "url": "https://gamemaker.qpic.cn/luban/1_-_-ChBhGhoAI8lJV5pj0Urnu5elEAEY29CD5AU"
-                },
-                {
-                    "id": "1_-_-ChCFlm4W6npI1LfMeItcfMi3EAEY29CD5AU",
-                    "url": "https://gamemaker.qpic.cn/luban/1_-_-ChCFlm4W6npI1LfMeItcfMi3EAEY29CD5AU"
-                },
-                {
-                    "id": "1_-_-ChBI7BguhXBPx6WOI82gdJpBEAEY29CD5AU",
-                    "url": "https://gamemaker.qpic.cn/luban/1_-_-ChBI7BguhXBPx6WOI82gdJpBEAEY29CD5AU"
-                },
-                {
-                    "id": "1_-_-ChDsznhtB7JI7rgtjswDfCCvEAEY29CD5AU",
-                    "url": "https://gamemaker.qpic.cn/luban/1_-_-ChDsznhtB7JI7rgtjswDfCCvEAEY29CD5AU"
-                }
-            ],
-            "count": 1
         }
     },
     "sounds": {},
@@ -1466,8 +661,8 @@
             "name": "战机",
             "properties": {
                 "visible": true,
-                "x": -6,
-                "y": -278.6,
+                "x": -24.6,
+                "y": -441.8,
                 "width": 150.3,
                 "scale": {
                     "x": 0.583,
@@ -1483,39 +678,11 @@
             "type": "sprite",
             "name": "金色子弹",
             "properties": {
-                "visible": true
+                "visible": true,
+                "x": -18.6,
+                "y": -250.9
             },
             "origin": "i[f#eXc9|=auKdS-Ukc%",
-            "scene": "hm_s#bkB_,J~5=a=ZvE!"
-        },
-        "fO=mf[kGjI2,tS8paRAR": {
-            "id": "fO=mf[kGjI2,tS8paRAR",
-            "type": "sprite",
-            "name": "GAMEOVER",
-            "properties": {
-                "visible": true
-            },
-            "origin": "6wAM3[ir?yliK@7f6D@;",
-            "scene": "hm_s#bkB_,J~5=a=ZvE!"
-        },
-        ".=E1fk4SnI9KEGLjYD|e": {
-            "id": ".=E1fk4SnI9KEGLjYD|e",
-            "type": "sprite",
-            "name": "双弹包爆炸",
-            "properties": {
-                "visible": true
-            },
-            "origin": "r1ecC|mrc@41VOGv:eQs",
-            "scene": "hm_s#bkB_,J~5=a=ZvE!"
-        },
-        "hI:Ct:mPg_?%[uqSv@q|": {
-            "id": "hI:Ct:mPg_?%[uqSv@q|",
-            "type": "sprite",
-            "name": "回到微信",
-            "properties": {
-                "visible": true
-            },
-            "origin": "q=l!U.??P7q`/Ppdi}8s",
             "scene": "hm_s#bkB_,J~5=a=ZvE!"
         },
         "PaqO]{_3!;2]:fh;3sS!": {
@@ -1523,59 +690,17 @@
             "type": "sprite",
             "name": "大敌机",
             "properties": {
-                "visible": true
+                "visible": true,
+                "x": -174.7,
+                "y": 347,
+                "width": 187.1,
+                "scale": {
+                    "x": 0.398,
+                    "y": 0.398
+                },
+                "height": 250.8
             },
             "origin": "R^}}Qnro-vSP4KBC}pL.",
-            "scene": "hm_s#bkB_,J~5=a=ZvE!"
-        },
-        "0%4yzusmC9y@HXO[sz#]": {
-            "id": "0%4yzusmC9y@HXO[sz#]",
-            "type": "sprite",
-            "name": "开始",
-            "properties": {
-                "visible": true
-            },
-            "origin": "h(9I|r7XziegBkWd_1;I",
-            "scene": "hm_s#bkB_,J~5=a=ZvE!"
-        },
-        "B%f{^;9v(r6/YF=;;@A1": {
-            "id": "B%f{^;9v(r6/YF=;;@A1",
-            "type": "sprite",
-            "name": "开始键",
-            "properties": {
-                "visible": true
-            },
-            "origin": "n~_VznWw*d83qarsGm96",
-            "scene": "hm_s#bkB_,J~5=a=ZvE!"
-        },
-        ":OCa,UN,@yBzp(hpe*7O": {
-            "id": ":OCa,UN,@yBzp(hpe*7O",
-            "type": "sprite",
-            "name": "彩色炸弹",
-            "properties": {
-                "visible": true
-            },
-            "origin": "?eSl}J}`2}yWfNsABBlt",
-            "scene": "hm_s#bkB_,J~5=a=ZvE!"
-        },
-        "(kfY2twV]x5b]S(:x=zi": {
-            "id": "(kfY2twV]x5b]S(:x=zi",
-            "type": "sprite",
-            "name": "暂停按钮",
-            "properties": {
-                "visible": true
-            },
-            "origin": "h6^D+S8q#ZNcl=%o0?Ks",
-            "scene": "hm_s#bkB_,J~5=a=ZvE!"
-        },
-        "x!w|59)BcD*1HAVQqW16": {
-            "id": "x!w|59)BcD*1HAVQqW16",
-            "type": "sprite",
-            "name": "游戏标题",
-            "properties": {
-                "visible": true
-            },
-            "origin": ":nH/NOUzLonRGYbF)UC)",
             "scene": "hm_s#bkB_,J~5=a=ZvE!"
         },
         ";jY;a8UU38K=;SZ8v=_e": {
@@ -1583,7 +708,9 @@
             "type": "sprite",
             "name": "蓝色子弹",
             "properties": {
-                "visible": true
+                "visible": true,
+                "x": 133.4,
+                "y": 18
             },
             "origin": ",v@:H8]AiSIIE-Jm+L;|",
             "scene": "hm_s#bkB_,J~5=a=ZvE!"
@@ -1593,29 +720,11 @@
             "type": "sprite",
             "name": "蓝色敌机-动画",
             "properties": {
-                "visible": true
+                "visible": true,
+                "x": 238.4,
+                "y": 347
             },
             "origin": "r=i=A}+rw`hTdFsl)/h)",
-            "scene": "hm_s#bkB_,J~5=a=ZvE!"
-        },
-        "1{?eV~hu8.(4Nbab)?+Y": {
-            "id": "1{?eV~hu8.(4Nbab)?+Y",
-            "type": "sprite",
-            "name": "金色子弹-1",
-            "properties": {
-                "visible": true
-            },
-            "origin": "CCL_)1p5-_wg77.qOo=E",
-            "scene": "hm_s#bkB_,J~5=a=ZvE!"
-        },
-        "E~kBD+3J(31hRpey~av4": {
-            "id": "E~kBD+3J(31hRpey~av4",
-            "type": "sprite",
-            "name": "陨石",
-            "properties": {
-                "visible": true
-            },
-            "origin": "Z|o[[D+vaA6NNA+o/;?)",
             "scene": "hm_s#bkB_,J~5=a=ZvE!"
         }
     },
