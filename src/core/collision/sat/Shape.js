@@ -7,15 +7,20 @@ export default class Shape {
     }
 
     collidesWith(shape) {
-        var axes = this.getAxes().concat(shape.getAxes())
+        const axes = this.getAxes().concat(shape.getAxes())
         return !this.separationOnAxes(axes, shape)
     }
+
+    // 每条单位向量法线作为投影轴
+    // 计算每个 shape 在投影轴上的投影是否重叠
     separationOnAxes(axes, shape) {
-        for(var i = 0, len = axes.length; i < len; i++) {
+        const { length } = axes;
+        for(let i = 0; i < length; i++) {
             const axis = axes[i];
             const projection1 = shape.project(axis);
             const projection2 = this.project(axis);
 
+            // 有一条投影轴上不相交，那么两个多边形不相交
             if(!projection1.overlaps(projection2)) {
                 return true
             }
@@ -32,7 +37,6 @@ export default class Shape {
         throw 'move(dx, dy) not implemented'
     }
 
-    
     createPath(context) {
         throw 'createPath(context) not implemented'
     }

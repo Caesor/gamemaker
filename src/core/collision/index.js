@@ -40,14 +40,12 @@ function drawShapes() {
     });
 }
 function detectCollisions() {
-    var textY = 30,
-        numShapes = shapes.length,
-        shape,
-        i;
+    let textY = 30;
+    const numShapes = shapes.length;
 
     if (shapeBeingDragged) {
-        for (i = 0; i < numShapes; ++i) {
-            shape = shapes[i];
+        for (let i = 0; i < numShapes; ++i) {
+            const shape = shapes[i];
 
             if (shape !== shapeBeingDragged) {
                 if (shapeBeingDragged.collidesWith(shape)) {

@@ -6,16 +6,17 @@ function getPolygonPointClosestToCircle(polygon, circle) {
     let min = 10000;
     let closestPoint;
 
-    for(let i = 0, len = polygon.points.length; i < len; i++) {
-        let testPoint = polygon.points[i]
-        let length = Math.sqrt(Math.pow(testPoint.x - circle.x, 2), Math.pow(testPoint.y - circle.y, 2))
-        if(length < min) {
-            min = length
-            closestPoint = testPoint
+    const { length: len } =  polygon.points;
+    for(let i = 0; i < len; i++) {
+        const point = polygon.points[i]
+        const dis = Math.sqrt(Math.pow(point.x - circle.x, 2), Math.pow(point.y - circle.y, 2))
+
+        if(dis < min) {
+            min = dis;
+            closestPoint = point;
         }
     }
-
-    return closestPoint
+    return closestPoint;
 }
 
 export function polygonCollidesWithCircle(polygon, circle) {

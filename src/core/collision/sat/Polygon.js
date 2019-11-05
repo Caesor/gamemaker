@@ -39,12 +39,10 @@ export default class Polygon extends Shape{
     }
     
     project(axis) {
-        let scalars = [],
-            v = new Vector()
+        let scalars = [];
     
-        this.points.forEach(function(point) {
-            v.x = point.x
-            v.y = point.y
+        this.points.forEach(point => {
+            let v = new Vector(point);
             scalars.push(v.dotProduct(axis))
         })
     
