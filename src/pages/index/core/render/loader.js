@@ -52,7 +52,7 @@ export default class Loader {
                     crossOrigin: true,
                     loadType: 2, // image
                     xhrType: 'blob'
-                })    
+                })
             }
         }
 

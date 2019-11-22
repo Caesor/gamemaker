@@ -30,8 +30,9 @@ module.exports = {
 	mode: 'development',
 
 	entry: {
-		index: './src/index.js',
-		collision: './src/core/collision/index.js'
+		index: './src/pages/index/index.js',
+		collision: './src/pages/test/collision/index.js',
+		phaser: './src/pages/phaser/index.js'
 	},
 
 	output: {
@@ -45,11 +46,19 @@ module.exports = {
 		new CopyPlugin([
 			{ from: './src/assets', to: 'assets' }
 		]),
-		new HtmlWebpackPlugin(),
+		new HtmlWebpackPlugin({
+			filename: 'index.html',
+			chunks: ['index']
+		}),
 		new HtmlWebpackPlugin({
 			filename: 'test.html',
-			template: 'src/index.html',
+			template: 'src/pages/test/index.html',
 			chunks: ['collision']
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'phaser.html',
+			template: 'src/pages/phaser/index.html',
+			chunks: ['phaser']
 		})
 	],
 
@@ -72,6 +81,17 @@ module.exports = {
 						]
 					]
 				}
+			},
+			{
+				test: /\.(png|jpg|gif)$/i,
+				use: [
+					{
+						loader: 'url-loader',
+						options: {
+						limit: 8192,
+						},
+					},
+				],
 			}
 		]
 	},

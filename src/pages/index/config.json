@@ -519,6 +519,13 @@
         }
     },
     "styles": {
+        "test": {
+            "name": "圆",
+            "type": "sprite",
+            "frame": [
+                { "id": "circle", "url": "https://gamemaker.qpic.cn/luban/1_-_-ChCeV240ZCNHqajXJcnCW4RoEAEYstOE5AU"}
+            ]
+        },
         "-_-ChALEjMdoU5E_JhIupnXM6wvEAEYzdCD5AU": {
             "id": "-_-ChALEjMdoU5E_JhIupnXM6wvEAEYzdCD5AU",
             "type": "sprite",
