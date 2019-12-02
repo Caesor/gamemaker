@@ -10,9 +10,12 @@ export default class ControlBox extends PIXI.Container{
     }
 
     init(sprite) {
-        this.x = sprite.x;
-        this.y = sprite.y;
-        this.rotation = sprite.rotation;
+        const {x, y, width, height, rotation } = sprite;
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.rotation = rotation;
 
         this.scaleBtnActive = false;
         this.rotationBtnActive = false;
@@ -22,12 +25,13 @@ export default class ControlBox extends PIXI.Container{
         this.outline = this.drawObject({
             type: 'graphics',
             properties: {
-                nteractive: true,
+                interactive: true,
                 cursor: 'move',
-                width: BtnSize,
-                height: BtnSize,
-                anchor: 0.5,
-                scale: 0.5
+                x: 0,
+                y: 0,
+                width,
+                height,
+                anchor: 0.5
             },
             events: {
                 pointerdown: this.outlinePointerDown.bind(this),
@@ -39,13 +43,16 @@ export default class ControlBox extends PIXI.Container{
 
         this.rotationBtn = this.drawObject({
             type: 'sprite',
-            icon: '../../assets/control/icon-rotate.png',
+            icon: 'https://res.wx.qq.com/wechatgame/product/cdn/luban/icon-rotate_2aaffb75.png',
             properties: {
+                interactive: true,
                 cursor: 'pointer',
+                x: -width / 2,
+                y: -height / 2,
                 width: BtnSize,
                 height: BtnSize,
+                scale: 0.5,
                 anchor: 0.5,
-                scale: 0.5
             },
             events: {
                 pointerdown: this.rotationBtnPointerDown.bind(this),
@@ -57,9 +64,12 @@ export default class ControlBox extends PIXI.Container{
 
         this.scaleBtn = this.drawObject({
             type: 'sprite',
-            icon: '../../assets/control/icon-scale.png',
+            icon: 'https://res.wx.qq.com/wechatgame/product/cdn/luban/icon-scale_be8d480f.png',
             properties: {
+                interactive: true,
                 cursor: 'nwse-resize',
+                x: width / 2,
+                y: height / 2,
                 width: BtnSize,
                 height: BtnSize,
                 anchor: 0.5,
@@ -76,17 +86,19 @@ export default class ControlBox extends PIXI.Container{
         this.addChild(this.outline);
         this.addChild(this.rotationBtn);
         this.addChild(this.scaleBtn);
-
+// debugger
         this.updateOutline();
     }
 
     drawObject(opts) {
         const { type, icon, properties, events } = opts;
+        const { x, y, scale = 1, anchor = 0, ...prop } = properties;
+        console.log(opts, x, y)
         let obj;
         switch (type) {
             case 'sprite':
-                console.log(require(icon))
-                obj = new PIXI.Sprite.fromImage(require(icon), true);
+                obj = new PIXI.Sprite.from(icon);
+                obj.anchor.set(anchor)
                 break;
             case 'graphics':
                 obj = new PIXI.Graphics();
@@ -94,11 +106,14 @@ export default class ControlBox extends PIXI.Container{
             default:
                 break;
         }
-        Object.assign(obj, properties);
-
-        for(let e in events) {
-            obj.on(e, events[e])
-        }
+        
+        Object.assign(obj, prop);
+        // debugger
+        obj.position.x = x;
+        obj.position.y = y;
+        obj.scale.x = scale;
+        obj.scale.y = scale;
+        
         return  obj;
     }
 
@@ -106,7 +121,7 @@ export default class ControlBox extends PIXI.Container{
         this.outline.clear();
         this.outline.beginFill(0x000000, 0);
         this.outline.lineStyle(2, 0x27AD8A);
-        this.outline.drawRect(-w / 2, -h / 2 + fix_y, w, h);
+        this.outline.drawRect(-this.width / 2, -this.height / 2, this.width, this.height);
         this.outline.endFill();
     }
 
@@ -158,6 +173,14 @@ export default class ControlBox extends PIXI.Container{
             this.rotation = _sprite.rotation;
         }
     }
+
+    scaleBtnPointerDown() {
+
+    }
+
+    scaleBtnPointerMove() {}
+    scaleBtnPointerUp(){}
+    pointerupoutside(){}
 
     outlinePointerDown() {
 

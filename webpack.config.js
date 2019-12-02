@@ -115,7 +115,7 @@ module.exports = {
 	devServer: {
 		open: true,
 		writeToDisk: true,
-		public: 'gamemaker.weixin.qq.com'
+		// public: 'gamemaker.weixin.qq.com'
 	},
 
 	devtool: 'cheap-module-eval-source-map'

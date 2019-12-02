@@ -1,23 +1,26 @@
 import * as PIXI from 'pixi.js'
 import ControlBox from './core/components/controlBox'
-
 const app = new PIXI.Application({ transparent: true });
 document.body.appendChild(app.view);
 
 // create a new Sprite from an image path.
-const bunny = PIXI.Sprite.from('https://gamemaker.qpic.cn/luban/1_-_-ChDuNOlM_KFAcKyu2KfjBagcEAEYtNSD5AU');
+const bunny = PIXI.Sprite.from('https://res.wx.qq.com/wechatgame/product/cdn/luban/hero_408acbf6.png');
 
+console.log('original', bunny)
 // center the sprite's anchor point
 bunny.anchor.set(0.5);
-
-const ctl = new ControlBox(bunny);
 
 // move the sprite to the center of the screen
 bunny.x = app.screen.width / 2;
 bunny.y = app.screen.height / 2;
 
 app.stage.addChild(bunny);
-app.stage.addChild(ctl);
+
+setTimeout(() => {
+    const ctl = new ControlBox(bunny);
+    app.stage.addChild(ctl);
+}, 200)
+
 // import App from './core/render/index';
 // import config from './config.json'
 // import { getOutline } from './core/render/collision/outline';
