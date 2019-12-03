@@ -173,7 +173,7 @@ export default class ControlBox extends PIXI.Container{
     rotationBtnDragMove(e) {
         if(this.rotationBtnActive) {
             const { x, y } = e.data.getLocalPosition(this.parent);
-            this.rotation = positionToRotation(x - this.x, y - this.y) + Math.PI / 2 - this.preRotation;
+            this.rotation = Number(positionToRotation(x - this.x, y - this.y) + Math.PI / 2 - this.preRotation).toFixed(2);
             this.sprite.rotation = this.rotation;
         }
     }
@@ -192,8 +192,8 @@ export default class ControlBox extends PIXI.Container{
             const height = Math.max(this.sprite.height + (y - this.pre.y) * 2, MINSCALE);
 
             if(true) {
-                this.sprite.height = width * this.sprite.height / this.sprite.width;
-                this.sprite.width = width;
+                this.sprite.height = Number(width * this.sprite.height / this.sprite.width).toFixed(2);
+                this.sprite.width = width.toFixed(2);
             }else {
                 this.sprite.height += (y - this.pre.y) * 2;
             }
@@ -218,8 +218,8 @@ export default class ControlBox extends PIXI.Container{
     outlineDragMove(e) {
         if(this.dragging) {
             const { x, y } = e.data.getLocalPosition(this.parent);
-            this.sprite.x = this.x = x + this.diff.x;
-            this.sprite.y = this.y = y + this.diff.y;
+            this.sprite.x = this.x = Math.floor(x + this.diff.x);
+            this.sprite.y = this.y = Math.floor(y + this.diff.y);
         }
     }
 

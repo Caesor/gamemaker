@@ -14,12 +14,25 @@ bunny.anchor.set(0.5);
 bunny.x = app.screen.width / 2;
 bunny.y = app.screen.height / 2;
 
+
+
 app.stage.addChild(bunny);
 
 setTimeout(() => {
+    const div = document.createElement('div')
+    div.innerText = `x: ${bunny.x}, y: ${bunny.y}, with: ${bunny.width}, height: ${bunny.height}, rotation: ${bunny.rotation}, scale: ${bunny.scale.x} ${bunny.scale.y}`
+    document.body.appendChild(div)
     const ctl = new ControlBox(bunny, );
     app.stage.addChild(ctl);
 }, 200)
+
+const div1 = document.createElement('div')
+
+document.body.appendChild(div1)
+setInterval(()=> {
+    div1.innerText = `x: ${bunny.x}, y: ${bunny.y}, with: ${bunny.width}, height: ${bunny.height}, rotation: ${bunny.rotation}, scale: ${bunny.scale.x} ${bunny.scale.y}`
+}, 200)
+
 
 // import App from './core/render/index';
 // import config from './config.json'
