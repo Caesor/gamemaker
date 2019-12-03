@@ -1,6 +1,9 @@
 import * as PIXI from 'pixi.js'
 
-const BtnSize = 30;
+const BtnBigSize = 30;
+const BtnSmallSize = 20;
+const MINSCALE = 15;
+
 //相对位置求角度
 const positionToRotation = function (x, y) {
     if (0 === x && 0 === y)
@@ -26,7 +29,6 @@ export default class ControlBox extends PIXI.Container{
         this.height = height;
         this.rotation = rotation;
         this.visible = true;
-        // this.anchor.set(0);
 
         this.scaleBtnActive = false;
         this.rotationBtnActive = false;
@@ -58,8 +60,8 @@ export default class ControlBox extends PIXI.Container{
                 cursor: 'pointer',
                 x: -width / 2,
                 y: -height / 2,
-                width: BtnSize,
-                height: BtnSize,
+                width: BtnBigSize,
+                height: BtnBigSize,
                 scale: 0.5,
                 anchor: 0.5,
             },
@@ -79,8 +81,8 @@ export default class ControlBox extends PIXI.Container{
                 cursor: 'nwse-resize',
                 x: width / 2,
                 y: height / 2,
-                width: BtnSize,
-                height: BtnSize,
+                width: BtnBigSize,
+                height: BtnBigSize,
                 anchor: 0.5,
                 scale: 0.5
             },
@@ -96,7 +98,9 @@ export default class ControlBox extends PIXI.Container{
         this.addChild(this.rotationBtn);
         this.addChild(this.scaleBtn);
 
+        // redraw the box line, do not scale it
         this.updateOutline();
+        // location & size
         this.updateBtns();
     }
 
@@ -130,10 +134,11 @@ export default class ControlBox extends PIXI.Container{
     }
 
     updateOutline() {
+        const { width, height } = this.sprite;
         this.outline.clear();
         this.outline.beginFill(0x000000, 0.1);
         this.outline.lineStyle(2, 0x27AD8A);
-        this.outline.drawRect(-this.width / 2, -this.height / 2, this.width, this.height);
+        this.outline.drawRect(-width/2, -height/2, width, height);
         this.outline.endFill();
     }
 
@@ -143,12 +148,23 @@ export default class ControlBox extends PIXI.Container{
 
         this.rotationBtn.x = -this.outline.width / 2;
         this.rotationBtn.y = -this.outline.height / 2;
+
+        if(this.sprite.width <= 80) {
+            this.scaleBtn.width = BtnSmallSize;
+            this.scaleBtn.height = BtnSmallSize;
+            this.rotationBtn.width = BtnSmallSize;
+            this.rotationBtn.height = BtnSmallSize;
+        }else {
+            this.scaleBtn.width = BtnBigSize;
+            this.scaleBtn.height = BtnBigSize;
+            this.rotationBtn.width = BtnBigSize;
+            this.rotationBtn.height = BtnBigSize;
+        }
     }
 
     rotationBtnDragStart(e) {
         this.rotationBtnActive = true;
-        this.data = e.data;
-        const { x, y } = this.data.getLocalPosition(this.parent);
+        const { x, y } = e.data.getLocalPosition(this.parent);
         this.preRotation = positionToRotation(x - this.x, y - this.y) + Math.PI / 2 - this.rotation;
     }
     rotationBtnDragEnd() {
@@ -164,28 +180,27 @@ export default class ControlBox extends PIXI.Container{
 
     scaleBtnDragStart(e) {
         this.scaleBtnActive = true;
-        this.data = e.data;
-        const { x, y } = this.data.getLocalPosition(this.parent);
+        const { x, y } = e.data.getLocalPosition(this.parent);
         this.pre = {x, y};
     }
 
-    scaleBtnDragMove() {
+    scaleBtnDragMove(e) {
         if(this.scaleBtnActive) {
-            const { x, y } = this.data.getLocalPosition(this.parent);
-            // change box
-            this.outline.width += (x - this.pre.x) * 2;
+            const { x, y } = e.data.getLocalPosition(this.parent);
+            // change sprite
+            const width = Math.max(this.sprite.width + (x - this.pre.x) * 2, MINSCALE)
+            const height = Math.max(this.sprite.height + (y - this.pre.y) * 2, MINSCALE);
 
             if(true) {
-                this.outline.height = this.outline.width * this.sprite.height / this.sprite.width;
+                this.sprite.height = width * this.sprite.height / this.sprite.width;
+                this.sprite.width = width;
             }else {
-                this.outline.height += (y - this.pre.y) * 2;
+                this.sprite.height += (y - this.pre.y) * 2;
             }
-
-            this.sprite.width = this.outline.width;
-            this.sprite.height = this.outline.height;
     
             this.pre = {x, y};
             this.updateBtns();
+            this.updateOutline();
         }
     }
 
@@ -196,20 +211,19 @@ export default class ControlBox extends PIXI.Container{
 
     outlineDragStart(e) {
         this.dragging = true;
-        this.data = e.data;
+        const { x, y } = e.data.getLocalPosition(this.parent);
+        this.diff = {x: this.x - x , y: this.y - y};
     }
 
-    outlineDragMove() {
+    outlineDragMove(e) {
         if(this.dragging) {
-            const { x, y } = this.data.getLocalPosition(this.parent);
-            this.sprite.x = this.x = x;
-            this.sprite.y = this.y = y;
+            const { x, y } = e.data.getLocalPosition(this.parent);
+            this.sprite.x = this.x = x + this.diff.x;
+            this.sprite.y = this.y = y + this.diff.y;
         }
     }
 
     outlineDragEnd() {
         this.dragging = false;
-        // set the interaction data to null
-        this.data = null;
     }
 }
