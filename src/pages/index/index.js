@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js'
-import ControlBox from './core/components/controlBox/index'
+import ControlBox from '../components/controlBox'
 const app = new PIXI.Application({ transparent: true });
 document.body.appendChild(app.view);
 

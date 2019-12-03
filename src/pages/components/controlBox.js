@@ -14,10 +14,9 @@ const positionToRotation = function (x, y) {
 };
 
 export default class ControlBox extends PIXI.Container{
-    constructor(sprite, opt) {
+    constructor(sprite) {
         super();
         this.sprite = sprite;
-        this.opt = opt;
         this.init(sprite);
     }
 
@@ -136,7 +135,7 @@ export default class ControlBox extends PIXI.Container{
     updateOutline() {
         const { width, height } = this.sprite;
         this.outline.clear();
-        this.outline.beginFill(0x000000, 0.1);
+        this.outline.beginFill(0x000000, 0.01);
         this.outline.lineStyle(2, 0x27AD8A);
         this.outline.drawRect(-width/2, -height/2, width, height);
         this.outline.endFill();
@@ -199,8 +198,8 @@ export default class ControlBox extends PIXI.Container{
             }
     
             this.pre = {x, y};
-            this.updateBtns();
             this.updateOutline();
+            this.updateBtns();
         }
     }
 
