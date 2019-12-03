@@ -1,14 +1,14 @@
 import * as PIXI from 'pixi.js'
-import ControlBox from './core/components/controlBox'
+import ControlBox from './core/components/controlBox/index'
 const app = new PIXI.Application({ transparent: true });
 document.body.appendChild(app.view);
 
 // create a new Sprite from an image path.
 const bunny = PIXI.Sprite.from('https://res.wx.qq.com/wechatgame/product/cdn/luban/hero_408acbf6.png');
 
-console.log('original', bunny)
 // center the sprite's anchor point
 bunny.anchor.set(0.5);
+
 
 // move the sprite to the center of the screen
 bunny.x = app.screen.width / 2;
@@ -17,7 +17,7 @@ bunny.y = app.screen.height / 2;
 app.stage.addChild(bunny);
 
 setTimeout(() => {
-    const ctl = new ControlBox(bunny);
+    const ctl = new ControlBox(bunny, );
     app.stage.addChild(ctl);
 }, 200)
 
