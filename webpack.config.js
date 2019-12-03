@@ -35,6 +35,11 @@ module.exports = {
 		phaser: './src/pages/phaser/index.js'
 	},
 
+	resolve: {
+		alias: {
+			'@': path.resolve(__dirname, 'src') 
+		}
+	},
 	output: {
 		filename: '[name].[chunkhash].js',
 		path: path.resolve(__dirname, 'dist')
@@ -116,7 +121,7 @@ module.exports = {
 	devServer: {
 		open: true,
 		writeToDisk: true,
-		// public: 'gamemaker.weixin.qq.com'
+		public: 'gamemaker.weixin.qq.com'
 	},
 
 	devtool: 'cheap-module-eval-source-map'

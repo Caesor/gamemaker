@@ -1,7 +1,7 @@
 import * as PIXI from 'pixi.js'
 import Sprite from './sprite';
 import Background from './background';
-import ControlBox from '../components/controlBox'
+import ControlBox from '@/pages/components/controlBox'
 
 export default class Scene extends PIXI.Container{
     constructor(id, options) {
@@ -23,15 +23,19 @@ export default class Scene extends PIXI.Container{
                     // get first frame
                     let texture = this.textures[this.styles[opt.currentStyle].frame[0].id];
                     sprite = new Sprite(opt.id, texture, opt);
-                    // const ctl = new ControlBox(sprite);
-                    // this.addChild(ctl);
+                    this.addChild(sprite);
+                    const ctrl = new ControlBox(sprite);
+                    ctrl.zIndex = 100;
+                    this.addChild(ctrl);
                     break;
                 case 'background':
                     sprite = new Background(opt.id, this.textures[opt.currentStyle], opt);
+
+                    this.addChild(sprite);
                     break;
                     
             }
-            this.addChild(sprite);
+            
             
         })
     }
