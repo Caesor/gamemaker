@@ -136,7 +136,7 @@ export default class ControlBox extends PIXI.Container{
         const { width, height } = this.sprite;
         this.outline.clear();
         this.outline.beginFill(0x000000, 0.01);
-        this.outline.lineStyle(2, 0x27AD8A);
+        this.outline.lineStyle(1, 0x27AD8A);
         this.outline.drawRect(-width/2, -height/2, width, height);
         this.outline.endFill();
     }
