@@ -31,8 +31,9 @@ module.exports = {
 
 	entry: {
 		index: './src/pages/index/index.js',
-		collision: './src/pages/test/collision/index.js',
-		phaser: './src/pages/phaser/index.js'
+		collision: './src/pages/test/index.js',
+		phaser: './src/pages/phaser/index.js',
+		outline: './src/pages/outline/index.js'
 	},
 
 	resolve: {
@@ -55,6 +56,11 @@ module.exports = {
 			filename: 'index.html',
 			template: 'src/pages/index/index.html',
 			chunks: ['index']
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'outline.html',
+			template: 'src/pages/outline/index.html',
+			chunks: ['outline']
 		}),
 		new HtmlWebpackPlugin({
 			filename: 'test.html',

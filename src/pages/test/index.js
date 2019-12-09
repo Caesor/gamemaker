@@ -1,6 +1,6 @@
-import Point from './sat/Point'
-import Circle from './sat/Circle'
-import Polygon from './sat/Polygon'
+import Point from '@/collision/sat/Point'
+import Circle from '@/collision/sat/Circle'
+import Polygon from '@/collision/sat/Polygon'
 
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');

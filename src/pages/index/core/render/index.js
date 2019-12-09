@@ -4,6 +4,7 @@ import Loader from './loader';
 import Loading from './loading';
 import Scene from './scene';
 import Sprite from './sprite';
+import AABB from '@/collision/AABB.js';
 
 export default class app extends PIXI.Application {
     constructor({ width, height, options, config }) {
@@ -17,9 +18,8 @@ export default class app extends PIXI.Application {
         // 坐标系以屏幕中心为原点
         this.stage.pivot.set(-width / 2, -height / 2);
 
-        this.scenes = new PIXI.Container;
-        this.stage.addChild(this.scenes);
-
+        this.stageReady = false;
+        this.currentScene = null;
         this.init();
     }
 
@@ -36,6 +36,7 @@ export default class app extends PIXI.Application {
                 this.loading.text(progress + '%');
             },
             onComplete: (resource) => {
+                this.stageReady = true;
                 this.loading.hide();
                 // start
                 this.loadScene(this.config.mainScene);
@@ -69,6 +70,31 @@ export default class app extends PIXI.Application {
             styles: this.config.styles
         });
 
-        this.scenes.addChild(scene);
+        this.stage.addChild(scene);
+        this.currentScene = scene;
+    }
+
+    stepFrame() {
+        if(!this.stageReady) {
+            return false;
+        }
+        this.detectCollition();
+    }
+
+    detectCollition() {
+        const sprites = this.currentScene.getSpriteList();
+        const len = sprites.length;
+
+        for(let i = 0; i < len; i++) {
+            for(let j = i + 1; j < len; j++) {
+                // AABB
+                const s1 = sprites[i].getBounds();
+                const s2 = sprites[j].getBounds();
+                const result = AABB(s1, s2);
+                if(result) {
+                    console.log(sprites[i].name, sprites[j].name);
+                }
+            }
+        }
     }
 }

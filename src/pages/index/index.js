@@ -32,7 +32,8 @@ import * as PIXI from 'pixi.js'
 
 
 import App from './core/render/index';
-import config from './config.json'
+import config from '@/config/default.json'
+// import config from './simple.json'
 import { getOutline } from './core/render/collision/outline';
 import { convexHullOfPoints } from './core/render/collision/geom'
 const app = new App({
@@ -45,6 +46,13 @@ const app = new App({
 document.body.appendChild(app.view);
 
 
+app.ticker.add((delta) => {
+    // just for fun, let's rotate mr rabbit a little
+    // delta is 1 if running at 100% performance
+    // creates frame-independent transformation
+    // bunny.rotation += 0.1 * delta;
+    app.stepFrame();
+});
 
 // const {components, styles} = config;
 

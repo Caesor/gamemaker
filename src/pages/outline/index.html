@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <script>
+//         window.config = {
+//     "meta": {
+//         "id": "lbQMxbu999S-aIa4j6H1-yvg",
+//         "type": 1,
+//         "behaviors": {},
+//         "last_edit_version": 3,
+//         "last_share_version": 0,
+//         "horizontal": false,
+//         "projectName": "learning",
+//         "code_type": 0,
+//         "team_manage_list": [],
+//         "team_member_list": [],
+//         "group_id": 0,
+//         "codeType": 0
+//     },
+//     "mainScene": "hm_s#bkB_,J~5=a=ZvE!",
+//     "scenes": {
+//         "hm_s#bkB_,J~5=a=ZvE!": {
+//             "id": "hm_s#bkB_,J~5=a=ZvE!",
+//             "sprites": [
+//                 "qOCNQept?1h_#u;F2G3)",
+//                 "z5-O00T%P~E?|WdfDfmj",
+//                 "BtSn{x~onsC[8rU?~-yg",
+//                 "PaqO]{_3!;2]:fh;3sS!",
+//                 ";jY;a8UU38K=;SZ8v=_e",
+//                 "k0xpN-!NpSuYQgqw(E.:"
+//             ],
+//             "backgroundColor": "465070",
+//             "zIndex": 1
+//         }
+//     },
+//     "components": {
+//         ":GLApYh(cr_4FR(M;?v2": {
+//             "id": ":GLApYh(cr_4FR(M;?v2",
+//             "type": "background",
+//             "name": "背景",
+//             "properties": {
+//                 "width": 750,
+//                 "height": 1333,
+//                 "_width": 750,
+//                 "_height": 1333,
+//                 "x": 0,
+//                 "y": 0,
+//                 "rotation": 0,
+//                 "scale": {
+//                     "x": 1,
+//                     "y": 1
+//                 },
+//                 "pivot": {
+//                     "x": 0,
+//                     "y": 0
+//                 },
+//                 "align": 0,
+//                 "smooth": false,
+//                 "unequal": false,
+//                 "alpha": 1,
+//                 "mirror": 0,
+//                 "repeat": 1,
+//                 "backgroundColor": {
+//                     "alpha": 1,
+//                     "hex": "#FFFFFF",
+//                     "rgba": "rgba(255,255,255,1)"
+//                 },
+//                 "visible": true
+//             },
+//             "layers": [
+//                 "qOCNQept?1h_#u;F2G3)"
+//             ],
+//             "scripts": [],
+//             "variables": {},
+//             "blocks": {},
+//             "behaviors": {},
+//             "code": [],
+//             "children": [],
+//             "styles": [
+//                 "1_-_-ChCJ_doYb2pGL4NVr75K0kLhEAEYy8ye5AU"
+//             ],
+//             "currentStyle": "1_-_-ChCJ_doYb2pGL4NVr75K0kLhEAEYy8ye5AU",
+//             "scene": "hm_s#bkB_,J~5=a=ZvE!",
+//             "pinyin": "BJ"
+//         },
+//         "(/2UpCEdoY,mAAgP)3p/": {
+//             "id": "(/2UpCEdoY,mAAgP)3p/",
+//             "type": "sprite",
+//             "name": "战机",
+//             "properties": {
+//                 "width": 258,
+//                 "height": 386,
+//                 "_width": 258,
+//                 "_height": 386,
+//                 "x": 0,
+//                 "y": 0,
+//                 "rotation": 0,
+//                 "scale": {
+//                     "x": 1,
+//                     "y": 1
+//                 },
+//                 "pivot": {
+//                     "x": 0,
+//                     "y": 0
+//                 },
+//                 "align": 0,
+//                 "smooth": false,
+//                 "unequal": false,
+//                 "alpha": 1,
+//                 "mirror": 0,
+//                 "repeat": 1,
+//                 "backgroundColor": {
+//                     "alpha": 1,
+//                     "hex": "#FFFFFF",
+//                     "rgba": "rgba(255,255,255,1)"
+//                 },
+//                 "visible": true
+//             },
+//             "layers": [
+//                 "z5-O00T%P~E?|WdfDfmj"
+//             ],
+//             "scripts": [
+//                 "OF7JmbxC/ngrx2V;ia^r"
+//             ],
+//             "variables": {},
+//             "blocks": {
+//                 "OF7JmbxC/ngrx2V;ia^r": {
+//                     "category": "events",
+//                     "fields": {},
+//                     "id": "OF7JmbxC/ngrx2V;ia^r",
+//                     "inputs": {
+//                         "SUBSTACK": {
+//                             "name": "SUBSTACK",
+//                             "block": "8col#v.X3O:zyQO5.bKC",
+//                             "shadow": null
+//                         }
+//                     },
+//                     "next": null,
+//                     "opcode": "event_whenflagclicked",
+//                     "parent": null,
+//                     "shadow": false,
+//                     "topLevel": true,
+//                     "x": 20,
+//                     "y": 20
+//                 },
+//                 "@aUzi1QAVR1cvFf}~LvL": {
+//                     "category": "animation",
+//                     "fields": {
+//                         "OPTION_LIST": {
+//                             "name": "OPTION_LIST",
+//                             "value": "_loop_"
+//                         }
+//                     },
+//                     "id": "@aUzi1QAVR1cvFf}~LvL",
+//                     "inputs": {
+//                         "SECS": {
+//                             "name": "SECS",
+//                             "block": "n9x_F;OI^0stRZ3jJ8kc",
+//                             "shadow": "n9x_F;OI^0stRZ3jJ8kc"
+//                         }
+//                     },
+//                     "next": null,
+//                     "opcode": "looks_animation",
+//                     "parent": "8col#v.X3O:zyQO5.bKC",
+//                     "shadow": false,
+//                     "topLevel": false
+//                 },
+//                 "n9x_F;OI^0stRZ3jJ8kc": {
+//                     "category": "null",
+//                     "fields": {
+//                         "NUM": {
+//                             "name": "NUM",
+//                             "value": 0.4
+//                         }
+//                     },
+//                     "id": "n9x_F;OI^0stRZ3jJ8kc",
+//                     "inputs": {},
+//                     "next": null,
+//                     "opcode": "math_number",
+//                     "parent": "@aUzi1QAVR1cvFf}~LvL",
+//                     "shadow": true,
+//                     "topLevel": false
+//                 },
+//                 "8col#v.X3O:zyQO5.bKC": {
+//                     "id": "8col#v.X3O:zyQO5.bKC",
+//                     "category": "control",
+//                     "opcode": "control_set_dragmode",
+//                     "inputs": {},
+//                     "fields": {
+//                         "OPTION_LIST": {
+//                             "name": "OPTION_LIST",
+//                             "value": "_any_"
+//                         }
+//                     },
+//                     "next": "@aUzi1QAVR1cvFf}~LvL",
+//                     "topLevel": false,
+//                     "parent": "OF7JmbxC/ngrx2V;ia^r",
+//                     "shadow": false,
+//                     "x": "535",
+//                     "y": "58"
+//                 }
+//             },
+//             "behaviors": {},
+//             "code": [],
+//             "children": [],
+//             "styles": [
+//                 "-_-ChALEjMdoU5E_JhIupnXM6wvEAEYzdCD5AU"
+//             ],
+//             "currentStyle": "-_-ChALEjMdoU5E_JhIupnXM6wvEAEYzdCD5AU",
+//             "pinyin": "ZJ"
+//         },
+//         "i[f#eXc9|=auKdS-Ukc%": {
+//             "id": "i[f#eXc9|=auKdS-Ukc%",
+//             "type": "sprite",
+//             "name": "金色子弹",
+//             "properties": {
+//                 "width": 12,
+//                 "height": 42,
+//                 "_width": 12,
+//                 "_height": 42,
+//                 "x": 0,
+//                 "y": 0,
+//                 "rotation": 0,
+//                 "scale": {
+//                     "x": 1,
+//                     "y": 1
+//                 },
+//                 "pivot": {
+//                     "x": 0,
+//                     "y": 0
+//                 },
+//                 "align": 0,
+//                 "smooth": false,
+//                 "unequal": false,
+//                 "alpha": 1,
+//                 "mirror": 0,
+//                 "repeat": 1,
+//                 "backgroundColor": {
+//                     "alpha": 1,
+//                     "hex": "#FFFFFF",
+//                     "rgba": "rgba(255,255,255,1)"
+//                 },
+//                 "visible": true
+//             },
+//             "layers": [
+//                 "BtSn{x~onsC[8rU?~-yg"
+//             ],
+//             "scripts": [],
+//             "variables": {},
+//             "blocks": {},
+//             "behaviors": {},
+//             "code": [],
+//             "children": [],
+//             "styles": [
+//                 "1_-_-ChDlYbweskFOHrAp9zYDEGWZEAEY4NCD5AU"
+//             ],
+//             "currentStyle": "1_-_-ChDlYbweskFOHrAp9zYDEGWZEAEY4NCD5AU",
+//             "pinyin": "JS"
+//         },
+//         "R^}}Qnro-vSP4KBC}pL.": {
+//             "id": "R^}}Qnro-vSP4KBC}pL.",
+//             "type": "sprite",
+//             "name": "大敌机",
+//             "properties": {
+//                 "width": 470,
+//                 "height": 630,
+//                 "_width": 470,
+//                 "_height": 630,
+//                 "x": 0,
+//                 "y": 0,
+//                 "rotation": 0,
+//                 "scale": {
+//                     "x": 1,
+//                     "y": 1
+//                 },
+//                 "pivot": {
+//                     "x": 0,
+//                     "y": 0
+//                 },
+//                 "align": 0,
+//                 "smooth": false,
+//                 "unequal": false,
+//                 "alpha": 1,
+//                 "mirror": 0,
+//                 "repeat": 1,
+//                 "backgroundColor": {
+//                     "alpha": 1,
+//                     "hex": "#FFFFFF",
+//                     "rgba": "rgba(255,255,255,1)"
+//                 },
+//                 "visible": true
+//             },
+//             "layers": [
+//                 "PaqO]{_3!;2]:fh;3sS!"
+//             ],
+//             "scripts": [
+//                 "cFo`.NqC0tsC.2j/Yy:9"
+//             ],
+//             "variables": {},
+//             "blocks": {
+//                 "cFo`.NqC0tsC.2j/Yy:9": {
+//                     "category": "events",
+//                     "fields": {},
+//                     "id": "cFo`.NqC0tsC.2j/Yy:9",
+//                     "inputs": {
+//                         "SUBSTACK": {
+//                             "name": "SUBSTACK",
+//                             "block": "QT*JFitl-l?E-26Quk.e",
+//                             "shadow": null
+//                         }
+//                     },
+//                     "next": null,
+//                     "opcode": "event_whenflagclicked",
+//                     "parent": null,
+//                     "shadow": false,
+//                     "topLevel": true,
+//                     "x": 20,
+//                     "y": 20
+//                 },
+//                 "QT*JFitl-l?E-26Quk.e": {
+//                     "category": "animation",
+//                     "fields": {
+//                         "OPTION_LIST": {
+//                             "name": "OPTION_LIST",
+//                             "value": "_loop_"
+//                         }
+//                     },
+//                     "id": "QT*JFitl-l?E-26Quk.e",
+//                     "inputs": {
+//                         "SECS": {
+//                             "name": "SECS",
+//                             "block": "83H1c=|?d_R0JyZk8qUp",
+//                             "shadow": "83H1c=|?d_R0JyZk8qUp"
+//                         }
+//                     },
+//                     "next": null,
+//                     "opcode": "looks_animation",
+//                     "parent": "QT*JFitl-l?E-26Quk.e",
+//                     "shadow": false,
+//                     "topLevel": false
+//                 },
+//                 "83H1c=|?d_R0JyZk8qUp": {
+//                     "category": "null",
+//                     "fields": {
+//                         "NUM": {
+//                             "name": "NUM",
+//                             "value": 1
+//                         }
+//                     },
+//                     "id": "83H1c=|?d_R0JyZk8qUp",
+//                     "inputs": {},
+//                     "next": null,
+//                     "opcode": "math_number",
+//                     "parent": "QT*JFitl-l?E-26Quk.e",
+//                     "shadow": true,
+//                     "topLevel": false
+//                 }
+//             },
+//             "behaviors": {},
+//             "code": [],
+//             "children": [],
+//             "styles": [
+//                 "-_-ChCmXVijLN9G_ojoqWR15A8zEAEYv9CD5AU"
+//             ],
+//             "currentStyle": "-_-ChCmXVijLN9G_ojoqWR15A8zEAEYv9CD5AU",
+//             "pinyin": "DD"
+//         },
+//         ",v@:H8]AiSIIE-Jm+L;|": {
+//             "id": ",v@:H8]AiSIIE-Jm+L;|",
+//             "type": "sprite",
+//             "name": "蓝色子弹",
+//             "properties": {
+//                 "width": 10,
+//                 "height": 36,
+//                 "_width": 10,
+//                 "_height": 36,
+//                 "x": 0,
+//                 "y": 0,
+//                 "rotation": 0,
+//                 "scale": {
+//                     "x": 1,
+//                     "y": 1
+//                 },
+//                 "pivot": {
+//                     "x": 0,
+//                     "y": 0
+//                 },
+//                 "align": 0,
+//                 "smooth": false,
+//                 "unequal": false,
+//                 "alpha": 1,
+//                 "mirror": 0,
+//                 "repeat": 1,
+//                 "backgroundColor": {
+//                     "alpha": 1,
+//                     "hex": "#FFFFFF",
+//                     "rgba": "rgba(255,255,255,1)"
+//                 },
+//                 "visible": true
+//             },
+//             "layers": [
+//                 ";jY;a8UU38K=;SZ8v=_e"
+//             ],
+//             "scripts": [],
+//             "variables": {},
+//             "blocks": {},
+//             "behaviors": {},
+//             "code": [],
+//             "children": [],
+//             "styles": [
+//                 "1_-_-ChDX6uSsdW1Pko9iFYU1lCN0EAEY4NCD5AU"
+//             ],
+//             "currentStyle": "1_-_-ChDX6uSsdW1Pko9iFYU1lCN0EAEY4NCD5AU",
+//             "pinyin": "LS"
+//         },
+//         "r=i=A}+rw`hTdFsl)/h)": {
+//             "id": "r=i=A}+rw`hTdFsl)/h)",
+//             "type": "sprite",
+//             "name": "蓝色敌机-动画",
+//             "properties": {
+//                 "width": 210,
+//                 "height": 220,
+//                 "_width": 210,
+//                 "_height": 220,
+//                 "x": 0,
+//                 "y": 0,
+//                 "rotation": 0,
+//                 "scale": {
+//                     "x": 1,
+//                     "y": 1
+//                 },
+//                 "pivot": {
+//                     "x": 0,
+//                     "y": 0
+//                 },
+//                 "align": 0,
+//                 "smooth": false,
+//                 "unequal": false,
+//                 "alpha": 1,
+//                 "mirror": 0,
+//                 "repeat": 1,
+//                 "backgroundColor": {
+//                     "alpha": 1,
+//                     "hex": "#FFFFFF",
+//                     "rgba": "rgba(255,255,255,1)"
+//                 },
+//                 "visible": true
+//             },
+//             "layers": [
+//                 "k0xpN-!NpSuYQgqw(E.:"
+//             ],
+//             "scripts": [
+//                 "dV,gC5%F|@nxJ_O-Fa6h"
+//             ],
+//             "variables": {},
+//             "blocks": {
+//                 "dV,gC5%F|@nxJ_O-Fa6h": {
+//                     "category": "events",
+//                     "fields": {},
+//                     "id": "dV,gC5%F|@nxJ_O-Fa6h",
+//                     "inputs": {
+//                         "SUBSTACK": {
+//                             "name": "SUBSTACK",
+//                             "block": "kvhvp:lju.1-^VP4u15:",
+//                             "shadow": null
+//                         }
+//                     },
+//                     "next": null,
+//                     "opcode": "event_whenflagclicked",
+//                     "parent": null,
+//                     "shadow": false,
+//                     "topLevel": true,
+//                     "x": 20,
+//                     "y": 20
+//                 },
+//                 "kvhvp:lju.1-^VP4u15:": {
+//                     "category": "animation",
+//                     "fields": {
+//                         "OPTION_LIST": {
+//                             "name": "OPTION_LIST",
+//                             "value": "_loop_"
+//                         }
+//                     },
+//                     "id": "kvhvp:lju.1-^VP4u15:",
+//                     "inputs": {
+//                         "SECS": {
+//                             "name": "SECS",
+//                             "block": "z0[8Hp~cUWewWr^vxt7t",
+//                             "shadow": "z0[8Hp~cUWewWr^vxt7t"
+//                         }
+//                     },
+//                     "next": null,
+//                     "opcode": "looks_animation",
+//                     "parent": "kvhvp:lju.1-^VP4u15:",
+//                     "shadow": false,
+//                     "topLevel": false
+//                 },
+//                 "z0[8Hp~cUWewWr^vxt7t": {
+//                     "category": "null",
+//                     "fields": {
+//                         "NUM": {
+//                             "name": "NUM",
+//                             "value": 1
+//                         }
+//                     },
+//                     "id": "z0[8Hp~cUWewWr^vxt7t",
+//                     "inputs": {},
+//                     "next": null,
+//                     "opcode": "math_number",
+//                     "parent": "kvhvp:lju.1-^VP4u15:",
+//                     "shadow": true,
+//                     "topLevel": false
+//                 }
+//             },
+//             "behaviors": {},
+//             "code": [],
+//             "children": [],
+//             "styles": [
+//                 "-_-ChDT09_PIf9PHKhnTGWkgi6xEAEYtNSD5AU"
+//             ],
+//             "currentStyle": "-_-ChDT09_PIf9PHKhnTGWkgi6xEAEYtNSD5AU",
+//             "pinyin": "LS"
+//         }
+//     },
+//     "styles": {
+//         "test": {
+//             "name": "圆",
+//             "type": "sprite",
+//             "frame": [
+//                 { "id": "circle", "url": "https://gamemaker.qpic.cn/luban/1_-_-ChCeV240ZCNHqajXJcnCW4RoEAEYstOE5AU"}
+//             ]
+//         },
+//         "-_-ChALEjMdoU5E_JhIupnXM6wvEAEYzdCD5AU": {
+//             "id": "-_-ChALEjMdoU5E_JhIupnXM6wvEAEYzdCD5AU",
+//             "type": "sprite",
+//             "name": "战机",
+//             "frame": [
+//                 {
+//                     "id": "1_-_-ChBJdrSHbGhNYIzdu-qovOdnEAEYzdCD5AU",
+//                     "url": "https://gamemaker.qpic.cn/luban/1_-_-ChBJdrSHbGhNYIzdu-qovOdnEAEYzdCD5AU"
+//                 },
+//                 {
+//                     "id": "1_-_-ChAT_yw8Z-tLc4IU7b5lhLhuEAEYzdCD5AU",
+//                     "url": "https://gamemaker.qpic.cn/luban/1_-_-ChAT_yw8Z-tLc4IU7b5lhLhuEAEYzdCD5AU"
+//                 }
+//             ],
+//             "count": 1
+//         },
+//         "1_-_-ChDlYbweskFOHrAp9zYDEGWZEAEY4NCD5AU": {
+//             "id": "1_-_-ChDlYbweskFOHrAp9zYDEGWZEAEY4NCD5AU",
+//             "type": "sprite",
+//             "name": "金色子弹",
+//             "frame": [
+//                 {
+//                     "id": "1_-_-ChDlYbweskFOHrAp9zYDEGWZEAEY4NCD5AU",
+//                     "url": "https://gamemaker.qpic.cn/luban/1_-_-ChDlYbweskFOHrAp9zYDEGWZEAEY4NCD5AU"
+//                 }
+//             ],
+//             "count": 1
+//         },
+//         "1_-_-ChCJ_doYb2pGL4NVr75K0kLhEAEYy8ye5AU": {
+//             "id": "1_-_-ChCJ_doYb2pGL4NVr75K0kLhEAEYy8ye5AU",
+//             "type": "background",
+//             "name": "星空",
+//             "frame": [
+//                 {
+//                     "id": "1_-_-ChCJ_doYb2pGL4NVr75K0kLhEAEYy8ye5AU",
+//                     "url": "https://gamemaker.qpic.cn/luban/1_-_-ChCJ_doYb2pGL4NVr75K0kLhEAEYy8ye5AU"
+//                 }
+//             ],
+//             "count": 1
+//         },
+//         "-_-ChCmXVijLN9G_ojoqWR15A8zEAEYv9CD5AU": {
+//             "id": "-_-ChCmXVijLN9G_ojoqWR15A8zEAEYv9CD5AU",
+//             "type": "sprite",
+//             "name": "大敌机",
+//             "frame": [
+//                 {
+//                     "id": "1_-_-ChCcFH5CdANP2qACCqUcviBNEAEYv9CD5AU",
+//                     "url": "https://gamemaker.qpic.cn/luban/1_-_-ChCcFH5CdANP2qACCqUcviBNEAEYv9CD5AU"
+//                 },
+//                 {
+//                     "id": "1_-_-ChANd7r4pnVA_LAK_Jh8mECQEAEYv9CD5AU",
+//                     "url": "https://gamemaker.qpic.cn/luban/1_-_-ChANd7r4pnVA_LAK_Jh8mECQEAEYv9CD5AU"
+//                 },
+//                 {
+//                     "id": "1_-_-ChBFcYCCgY9G8oLy3PDE4Y0XEAEYv9CD5AU",
+//                     "url": "https://gamemaker.qpic.cn/luban/1_-_-ChBFcYCCgY9G8oLy3PDE4Y0XEAEYv9CD5AU"
+//                 },
+//                 {
+//                     "id": "1_-_-ChA0Tc89q4tCnJGy2s9xOcpEEAEYv9CD5AU",
+//                     "url": "https://gamemaker.qpic.cn/luban/1_-_-ChA0Tc89q4tCnJGy2s9xOcpEEAEYv9CD5AU"
+//                 },
+//                 {
+//                     "id": "1_-_-ChBrUfp8fapPiKVq6-r9pcVQEAEYv9CD5AU",
+//                     "url": "https://gamemaker.qpic.cn/luban/1_-_-ChBrUfp8fapPiKVq6-r9pcVQEAEYv9CD5AU"
+//                 }
+//             ],
+//             "count": 1
+//         },
+//         "1_-_-ChDX6uSsdW1Pko9iFYU1lCN0EAEY4NCD5AU": {
+//             "id": "1_-_-ChDX6uSsdW1Pko9iFYU1lCN0EAEY4NCD5AU",
+//             "type": "sprite",
+//             "name": "蓝色子弹",
+//             "frame": [
+//                 {
+//                     "id": "1_-_-ChDX6uSsdW1Pko9iFYU1lCN0EAEY4NCD5AU",
+//                     "url": "https://gamemaker.qpic.cn/luban/1_-_-ChDX6uSsdW1Pko9iFYU1lCN0EAEY4NCD5AU"
+//                 }
+//             ],
+//             "count": 1
+//         },
+//         "-_-ChDT09_PIf9PHKhnTGWkgi6xEAEYtNSD5AU": {
+//             "id": "-_-ChDT09_PIf9PHKhnTGWkgi6xEAEYtNSD5AU",
+//             "type": "sprite",
+//             "name": "蓝色敌机-动画",
+//             "frame": [
+//                 {
+//                     "id": "1_-_-ChDuNOlM_KFAcKyu2KfjBagcEAEYtNSD5AU",
+//                     "url": "https://gamemaker.qpic.cn/luban/1_-_-ChDuNOlM_KFAcKyu2KfjBagcEAEYtNSD5AU"
+//                 },
+//                 {
+//                     "id": "1_-_-ChA2dWXuogpByIKWonTKn-IcEAEYtNSD5AU",
+//                     "url": "https://gamemaker.qpic.cn/luban/1_-_-ChA2dWXuogpByIKWonTKn-IcEAEYtNSD5AU"
+//                 },
+//                 {
+//                     "id": "1_-_-ChCFbEGsC0ZDrIPOpNZE1O88EAEYtNSD5AU",
+//                     "url": "https://gamemaker.qpic.cn/luban/1_-_-ChCFbEGsC0ZDrIPOpNZE1O88EAEYtNSD5AU"
+//                 },
+//                 {
+//                     "id": "1_-_-ChBxuXVMZetFM6ScRsUR7wr0EAEYtNSD5AU",
+//                     "url": "https://gamemaker.qpic.cn/luban/1_-_-ChBxuXVMZetFM6ScRsUR7wr0EAEYtNSD5AU"
+//                 },
+//                 {
+//                     "id": "1_-_-ChDrNkj4Jw5LwJRK8uDjP35wEAEYtNSD5AU",
+//                     "url": "https://gamemaker.qpic.cn/luban/1_-_-ChDrNkj4Jw5LwJRK8uDjP35wEAEYtNSD5AU"
+//                 }
+//             ],
+//             "count": 1
+//         }
+//     },
+//     "sounds": {},
+//     "variables": {},
+//     "messages": {},
+//     "outlines": {},
+//     "physicalmodels": {},
+//     "codeType": 0,
+//     "sprites": {
+//         "qOCNQept?1h_#u;F2G3)": {
+//             "id": "qOCNQept?1h_#u;F2G3)",
+//             "type": "background",
+//             "name": "背景",
+//             "properties": {
+//                 "visible": true,
+//                 "x": 0,
+//                 "y": 0,
+//                 "width": 750,
+//                 "scale": {
+//                     "x": 1,
+//                     "y": 1
+//                 },
+//                 "height": 1333,
+//                 "_width": 750,
+//                 "_height": 1333
+//             },
+//             "scene": "hm_s#bkB_,J~5=a=ZvE!",
+//             "origin": ":GLApYh(cr_4FR(M;?v2"
+//         },
+//         "z5-O00T%P~E?|WdfDfmj": {
+//             "id": "z5-O00T%P~E?|WdfDfmj",
+//             "type": "sprite",
+//             "name": "战机",
+//             "properties": {
+//                 "visible": true,
+//                 "x": -24.6,
+//                 "y": -441.8,
+//                 "width": 150.3,
+//                 "scale": {
+//                     "x": 0.583,
+//                     "y": 0.583
+//                 },
+//                 "height": 224.9
+//             },
+//             "origin": "(/2UpCEdoY,mAAgP)3p/",
+//             "scene": "hm_s#bkB_,J~5=a=ZvE!"
+//         },
+//         "BtSn{x~onsC[8rU?~-yg": {
+//             "id": "BtSn{x~onsC[8rU?~-yg",
+//             "type": "sprite",
+//             "name": "金色子弹",
+//             "properties": {
+//                 "visible": true,
+//                 "x": -18.6,
+//                 "y": -250.9
+//             },
+//             "origin": "i[f#eXc9|=auKdS-Ukc%",
+//             "scene": "hm_s#bkB_,J~5=a=ZvE!"
+//         },
+//         "PaqO]{_3!;2]:fh;3sS!": {
+//             "id": "PaqO]{_3!;2]:fh;3sS!",
+//             "type": "sprite",
+//             "name": "大敌机",
+//             "properties": {
+//                 "visible": true,
+//                 "x": -174.7,
+//                 "y": 347,
+//                 "width": 187.1,
+//                 "scale": {
+//                     "x": 0.398,
+//                     "y": 0.398
+//                 },
+//                 "height": 250.8
+//             },
+//             "origin": "R^}}Qnro-vSP4KBC}pL.",
+//             "scene": "hm_s#bkB_,J~5=a=ZvE!"
+//         },
+//         ";jY;a8UU38K=;SZ8v=_e": {
+//             "id": ";jY;a8UU38K=;SZ8v=_e",
+//             "type": "sprite",
+//             "name": "蓝色子弹",
+//             "properties": {
+//                 "visible": true,
+//                 "x": 133.4,
+//                 "y": 18
+//             },
+//             "origin": ",v@:H8]AiSIIE-Jm+L;|",
+//             "scene": "hm_s#bkB_,J~5=a=ZvE!"
+//         },
+//         "k0xpN-!NpSuYQgqw(E.:": {
+//             "id": "k0xpN-!NpSuYQgqw(E.:",
+//             "type": "sprite",
+//             "name": "蓝色敌机-动画",
+//             "properties": {
+//                 "visible": true,
+//                 "x": 238.4,
+//                 "y": 347
+//             },
+//             "origin": "r=i=A}+rw`hTdFsl)/h)",
+//             "scene": "hm_s#bkB_,J~5=a=ZvE!"
+//         }
+//     },
+//     "behaviors": {},
+//     "version": 8
+// }    
+    </script>
+</body>
+</html>

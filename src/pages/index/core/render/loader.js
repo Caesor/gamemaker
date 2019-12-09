@@ -26,7 +26,7 @@ export default class Loader {
             for (let key in resources) {
                 this.textures[key] = new PIXI.Texture(new PIXI.BaseTexture(resources[key].data));
             }
-            console.log('总耗时', Date.now() - startTime, this.textures);
+            // console.log('总耗时', Date.now() - startTime, this.textures);
 
             this.resourcesLoadComplete = true;
 
