@@ -3,13 +3,19 @@ import Vector from './Vector';
 import Point from './Point';
 import Projection from './Projection';
 import { polygonCollidesWithCircle } from './utils'
+import AABB from '@/collision/AABB.js';
 
 export default class Polygon extends Shape{
-    constructor() {
+    constructor(id, color='white') {
         super();
-        this.points = []
-        this.strokeStyle = 'blue'
-        this.fillStyle = 'white'
+        this.id = id;
+        this.points = [];
+        this.strokeStyle = 'black';
+        this.fillStyle = color;
+        this.vx = 0;
+        this.vy = 0;
+
+        this.collisionList = [];
     }
 
     getAxes() {
@@ -73,10 +79,60 @@ export default class Polygon extends Shape{
             point = this.points[i]
             point.x += dx
             point.y += dy
+            if(point.x >= 375) {
+                this.vx = -Math.abs(this.vx);
+            }
+            if(point.x <= 0) {
+                this.vx = Math.abs(this.vx);
+            }
+            if(point.y >= 667) {
+                this.vy = -Math.abs(this.vy);
+            }
+            if(point.y <= 0) {
+                this.vy = Math.abs(this.vy);
+            }
+        }
+    }
+
+    getBounds() {
+        let max_x, max_y, min_x, min_y;
+        max_x = min_x = this.points[0].x;
+        max_y = min_y = this.points[0].y;
+        for(let i = 1; i < this.points.length; i++) {
+            const {x, y} = this.points[i];
+            if(x > max_x) {
+                max_x = x;
+            }
+            if(x < min_x) {
+                min_x = x;
+            }
+            if(y > max_y) {
+                max_y = y;
+            }
+            if(y < min_y) {
+                min_y = y;
+            }
+        }
+        return {
+            x: min_x,
+            y: min_y,
+            width: max_x - min_x,
+            height: max_y - min_y,
+            left: min_x,
+            top: min_y
         }
     }
     
     collidesWith(shape) {
+        // AABB rough check
+        const rect1 = this.getBounds();
+        const rect2 = shape.getBounds();
+        if(!AABB(rect1, rect2)){
+            return false;
+        }
+        // return AABB(rect1, rect2);
+
+        // normal
         let axes = shape.getAxes()
         if(axes === undefined) {
             return polygonCollidesWithCircle(this, shape)
@@ -84,5 +140,10 @@ export default class Polygon extends Shape{
             axes = axes.concat(this.getAxes())
             return !this.separationOnAxes(axes, shape)
         }
+    }
+
+    changeColor() {
+        const COLORS = ['AliceBlue', 'Aqua', 'Beige', 'Chartreuse', 'CornflowerBlue', 'DarkTurquoise'];
+        this.fillStyle = COLORS[Math.floor(Math.random()*COLORS.length)];
     }
 }

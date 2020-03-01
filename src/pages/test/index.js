@@ -8,10 +8,12 @@ let shapes = [];
 const polygonPoints = [
     [new Point(250, 150), new Point(250, 250), new Point(350, 250)],
     [new Point(100, 100), new Point(100, 150), new Point(150, 150), new Point(150, 100)],
-    [new Point(400, 100), new Point(380, 150), new Point(500, 150), new Point(520, 100)]
+    [new Point(400, 100), new Point(380, 150), new Point(500, 150), new Point(520, 100)],
+    [new Point(20, 0), new Point(40, 0), new Point(60, 20), new Point(60, 40), new Point(40, 60), new Point(20, 60), new Point(0, 40), new Point(0, 20)],
+    [new Point(20, 0), new Point(40, 0), new Point(60, 20), new Point(40, 40), new Point(20, 40), new Point(0, 20)]
 ];
-const polygonStrokeStyles = ['blue', 'yellow', 'red'];
-const polygonFillStyles = ['rgba(255,255,0,0.7)', 'rgba(100,140,230,0.6)', 'rgba(255,0,255,0.8)'];
+const polygonStrokeStyles = ['blue', 'yellow', 'red', 'pink', 'magenta'];
+const polygonFillStyles = ['rgba(255,255,0,0.7)', 'rgba(100,140,230,0.6)', 'rgba(255,0,255,0.8)', 'rgba(0,224,89,0.8)', 'rgba(0,65,255,0.8)'];
 
 const circle1 = new Circle(150, 75, 20);
 const circle2 = new Circle(350, 45, 30);

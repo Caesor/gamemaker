@@ -40,6 +40,13 @@ export default class Shape {
     createPath(context) {
         throw 'createPath(context) not implemented'
     }
+    drawIndex(context, index, x, y) {
+        context.save();
+        context.fillStyle = 'black';
+        context.font = '18px Arial';
+        context.fillText(index, x-9, y+9);
+        context.restore();
+    }
     fill(context) {
         context.save()
         context.fillStyle = this.fillStyle
