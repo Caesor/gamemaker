@@ -13,7 +13,7 @@ const positionToRotation = function (x, y) {
     return x < 0 && (ry = ry > 0 ? Math.PI - ry : -Math.PI - ry), ry < 0 ? ry + 2 * Math.PI : ry
 };
 
-export default class ControlBox extends PIXI.Container{
+export default class Outline extends PIXI.Container{
     constructor(sprite) {
         super();
         this.sprite = sprite;
@@ -24,8 +24,8 @@ export default class ControlBox extends PIXI.Container{
         const {x, y, width, height, rotation } = sprite;
         this.x = x;
         this.y = y;
-        this.width = width;
-        this.height = height;
+        // this.width = width;
+        // this.height = height;
         this.rotation = rotation;
         this.visible = true;
 
@@ -132,8 +132,12 @@ export default class ControlBox extends PIXI.Container{
         return  obj;
     }
 
-    updateOutline() {
-        const { width, height } = this.sprite;
+    updateOutline(w, h) {
+        let width, height;
+
+        width = this.sprite.width;
+        height = this.sprite.height;
+
         this.outline.clear();
         this.outline.beginFill(0x000000, 0.01);
         this.outline.lineStyle(1, 0x27AD8A);
@@ -173,7 +177,7 @@ export default class ControlBox extends PIXI.Container{
         if(this.rotationBtnActive) {
             const { x, y } = e.data.getLocalPosition(this.parent);
             this.rotation = Number(positionToRotation(x - this.x, y - this.y) + Math.PI / 2 - this.preRotation).toFixed(2);
-            this.sprite.rotation = this.rotation;
+            // this.sprite.rotation = this.rotation;
         }
     }
 
@@ -187,18 +191,23 @@ export default class ControlBox extends PIXI.Container{
         if(this.scaleBtnActive) {
             const { x, y } = e.data.getLocalPosition(this.parent);
             // change sprite
-            const width = Math.max(this.sprite.width + (x - this.pre.x) * 2, MINSCALE)
-            const height = Math.max(this.sprite.height + (y - this.pre.y) * 2, MINSCALE);
+            // console.log(this.width, this.height, this.outline.width, this.outline.height);
+            const width = Math.max(this.outline.width + (x - this.pre.x) * 2, MINSCALE)
+            const height = Math.max(this.outline.height + (y - this.pre.y) * 2, MINSCALE);
 
-            if(true) {
-                this.sprite.width = width.toFixed(2);
-                this.sprite.height = Number(width * this.sprite.height / this.sprite.width).toFixed(2);
-            }else {
-                this.sprite.height += (y - this.pre.y) * 2;
-            }
+            // console.log(width, height)
+            this.outline.width = width;
+            this.outline.height = height;
+
+            // if(true) {
+            //     // this.sprite.height = Number(width * this.sprite.height / this.sprite.width).toFixed(2);
+            //     // this.sprite.width = width.toFixed(2);
+            // }else {
+            //     this.sprite.height += (y - this.pre.y) * 2;
+            // }
     
             this.pre = {x, y};
-            this.updateOutline();
+            // this.updateOutline(1,1);
             this.updateBtns();
         }
     }
@@ -217,8 +226,8 @@ export default class ControlBox extends PIXI.Container{
     outlineDragMove(e) {
         if(this.dragging) {
             const { x, y } = e.data.getLocalPosition(this.parent);
-            this.sprite.x = this.x = Math.floor(x + this.diff.x);
-            this.sprite.y = this.y = Math.floor(y + this.diff.y);
+            this.x = Math.floor(x + this.diff.x);
+            this.y = Math.floor(y + this.diff.y);
         }
     }
 

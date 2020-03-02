@@ -51,7 +51,7 @@ app.ticker.add((delta) => {
     // delta is 1 if running at 100% performance
     // creates frame-independent transformation
     // bunny.rotation += 0.1 * delta;
-    app.stepFrame();
+    app.update();
 });
 
 // const {components, styles} = config;

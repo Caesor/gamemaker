@@ -1,0 +1,727 @@
+{
+    "meta": {
+        "id": "lbZjRhMzg0OGItYmQ5My00YjMxLTg2NDQtZWIyYjA5MTJiZjgz",
+        "type": 1,
+        "horizontal": false,
+        "projectName": "碰撞两对",
+        "code_type": 0
+    },
+    "mainScene": "f.CrQNX7Yd:._Lb0Jq7M",
+    "scenes": {
+        "f.CrQNX7Yd:._Lb0Jq7M": {
+            "id": "f.CrQNX7Yd:._Lb0Jq7M",
+            "sprites": [
+                "Q=mL^h`xBXiee@**/enW",
+                "7]M[Y|}uUkJ8]]Ms}[vA",
+                "vOea;t5(Og]NP|o{GqgV",
+                "xlF`NnlKc)l+oIyOasaC"
+            ],
+            "backgroundColor": "465070",
+            "zIndex": 1
+        }
+    },
+    "components": {
+        "pk-3avq?l=UK;.b.WRS-": {
+            "id": "pk-3avq?l=UK;.b.WRS-",
+            "type": "background",
+            "properties": {
+                "width": 100,
+                "height": 100,
+                "_width": 100,
+                "_height": 100,
+                "x": 0,
+                "y": 0,
+                "rotation": 0,
+                "scale": {
+                    "x": 1,
+                    "y": 1
+                },
+                "pivot": {
+                    "x": 0,
+                    "y": 0
+                },
+                "align": 0,
+                "smooth": false,
+                "unequal": false,
+                "alpha": 1,
+                "mirror": 0,
+                "repeat": 1,
+                "backgroundColor": {
+                    "alpha": 1,
+                    "hex": "#FFFFFF",
+                    "rgba": "rgba(255,255,255,1)"
+                },
+                "visible": true
+            },
+            "scripts": [],
+            "variables": {},
+            "blocks": {},
+            "code": [],
+            "children": [],
+            "styles": [
+                "styles_0"
+            ],
+            "currentStyle": "styles_0",
+            "scene": "f.CrQNX7Yd:._Lb0Jq7M",
+            "layers": [
+                "Q=mL^h`xBXiee@**/enW"
+            ],
+            "name": "背景",
+            "pinyin": "BJ"
+        },
+        "u`*j?_|/_^,F*7;nPGAH": {
+            "id": "u`*j?_|/_^,F*7;nPGAH",
+            "type": "sprite",
+            "properties": {
+                "width": 128,
+                "height": 128,
+                "_width": 128,
+                "_height": 128,
+                "x": 0,
+                "y": 0,
+                "rotation": 0,
+                "scale": {
+                    "x": 1,
+                    "y": 1
+                },
+                "pivot": {
+                    "x": 0,
+                    "y": 0
+                },
+                "align": 0,
+                "smooth": false,
+                "unequal": false,
+                "alpha": 1,
+                "mirror": 0,
+                "repeat": 1,
+                "backgroundColor": {
+                    "alpha": 1,
+                    "hex": "#FFFFFF",
+                    "rgba": "rgba(255,255,255,1)"
+                },
+                "visible": true
+            },
+            "scripts": [
+                "h9KmFEh:E[~ocD1%2qR1",
+                "?QOMGRltY|mrzg*^{IAr"
+            ],
+            "variables": {},
+            "blocks": {
+                "h9KmFEh:E[~ocD1%2qR1": {
+                    "id": "h9KmFEh:E[~ocD1%2qR1",
+                    "category": "events",
+                    "opcode": "event_whenflagclicked",
+                    "inputs": {
+                        "SUBSTACK": {
+                            "name": "SUBSTACK",
+                            "block": "/%ilEX,[5myUmxb#?)z_",
+                            "shadow": null
+                        }
+                    },
+                    "fields": {},
+                    "next": null,
+                    "topLevel": true,
+                    "parent": null,
+                    "shadow": false,
+                    "x": "0",
+                    "y": "0"
+                },
+                "/%ilEX,[5myUmxb#?)z_": {
+                    "id": "/%ilEX,[5myUmxb#?)z_",
+                    "category": "control",
+                    "opcode": "control_create_clone_of",
+                    "inputs": {},
+                    "fields": {
+                        "OPTION_LIST": {
+                            "name": "OPTION_LIST",
+                            "value": "_self_"
+                        }
+                    },
+                    "next": "XP/2cuqFMcj[$i8c=+?J",
+                    "topLevel": false,
+                    "parent": "h9KmFEh:E[~ocD1%2qR1",
+                    "shadow": false,
+                    "x": "41",
+                    "y": "95"
+                },
+                "?QOMGRltY|mrzg*^{IAr": {
+                    "id": "?QOMGRltY|mrzg*^{IAr",
+                    "category": "events",
+                    "opcode": "event_start_as_clone",
+                    "inputs": {
+                        "SUBSTACK": {
+                            "name": "SUBSTACK",
+                            "block": "2bFLw)nvxmRDM2];~Mt}",
+                            "shadow": null
+                        }
+                    },
+                    "fields": {},
+                    "next": null,
+                    "topLevel": true,
+                    "parent": null,
+                    "shadow": false,
+                    "x": "0",
+                    "y": "0"
+                },
+                "2bFLw)nvxmRDM2];~Mt}": {
+                    "id": "2bFLw)nvxmRDM2];~Mt}",
+                    "category": "motion",
+                    "opcode": "motion_goto",
+                    "inputs": {},
+                    "fields": {
+                        "OPTION_LIST": {
+                            "name": "OPTION_LIST",
+                            "value": "_random_"
+                        }
+                    },
+                    "next": null,
+                    "topLevel": false,
+                    "parent": "?QOMGRltY|mrzg*^{IAr",
+                    "shadow": false,
+                    "x": "41",
+                    "y": "126"
+                },
+                "XP/2cuqFMcj[$i8c=+?J": {
+                    "id": "XP/2cuqFMcj[$i8c=+?J",
+                    "category": "control",
+                    "opcode": "control_create_clone_of",
+                    "inputs": {},
+                    "fields": {
+                        "OPTION_LIST": {
+                            "name": "OPTION_LIST",
+                            "value": "vOea;t5(Og]NP|o{GqgV",
+                            "text": "(场景1)敌机-小"
+                        }
+                    },
+                    "next": null,
+                    "topLevel": false,
+                    "parent": "/%ilEX,[5myUmxb#?)z_",
+                    "shadow": false,
+                    "x": 88,
+                    "y": 368
+                }
+            },
+            "code": [],
+            "children": [],
+            "styles": [
+                "1_-_-ChDkMXnflOdAI5PlxSSznjbfEAEYpfaD5AU"
+            ],
+            "currentStyle": "1_-_-ChDkMXnflOdAI5PlxSSznjbfEAEYpfaD5AU",
+            "layers": [
+                "7]M[Y|}uUkJ8]]Ms}[vA"
+            ],
+            "name": "侦察机",
+            "pinyin": "ZC"
+        },
+        ":_2XsA,.lsg5s4UprWu9": {
+            "id": ":_2XsA,.lsg5s4UprWu9",
+            "type": "sprite",
+            "properties": {
+                "width": 64,
+                "height": 64,
+                "_width": 64,
+                "_height": 64,
+                "x": 0,
+                "y": 0,
+                "rotation": 0,
+                "scale": {
+                    "x": 1,
+                    "y": 1
+                },
+                "pivot": {
+                    "x": 0,
+                    "y": 0
+                },
+                "align": 0,
+                "smooth": false,
+                "unequal": false,
+                "alpha": 1,
+                "mirror": 0,
+                "repeat": 1,
+                "backgroundColor": {
+                    "alpha": 1,
+                    "hex": "#FFFFFF",
+                    "rgba": "rgba(255,255,255,1)"
+                },
+                "visible": true
+            },
+            "scripts": [
+                "?QOMGRltY|mrzg*^{IAr"
+            ],
+            "variables": {},
+            "blocks": {
+                "?QOMGRltY|mrzg*^{IAr": {
+                    "id": "?QOMGRltY|mrzg*^{IAr",
+                    "category": "events",
+                    "opcode": "event_start_as_clone",
+                    "inputs": {
+                        "SUBSTACK": {
+                            "name": "SUBSTACK",
+                            "block": "2bFLw)nvxmRDM2];~Mt}",
+                            "shadow": null
+                        }
+                    },
+                    "fields": {},
+                    "next": null,
+                    "topLevel": true,
+                    "parent": null,
+                    "shadow": false,
+                    "x": 20,
+                    "y": 20
+                },
+                "2bFLw)nvxmRDM2];~Mt}": {
+                    "id": "2bFLw)nvxmRDM2];~Mt}",
+                    "category": "motion",
+                    "opcode": "motion_goto",
+                    "inputs": {},
+                    "fields": {
+                        "OPTION_LIST": {
+                            "name": "OPTION_LIST",
+                            "value": "_random_"
+                        }
+                    },
+                    "next": null,
+                    "topLevel": false,
+                    "parent": "?QOMGRltY|mrzg*^{IAr",
+                    "shadow": false
+                }
+            },
+            "code": [],
+            "children": [],
+            "styles": [
+                "1_-_-ChB7ggmk6YhI0JQkpv7LuQkjEAEYmveD5AU"
+            ],
+            "currentStyle": "1_-_-ChB7ggmk6YhI0JQkpv7LuQkjEAEYmveD5AU",
+            "layers": [
+                "vOea;t5(Og]NP|o{GqgV"
+            ],
+            "name": "敌机-小",
+            "pinyin": "DJ"
+        },
+        "Ver:aDv)PfgYn6B0]_ct": {
+            "id": "Ver:aDv)PfgYn6B0]_ct",
+            "type": "sprite",
+            "properties": {
+                "width": 128,
+                "height": 128,
+                "_width": 128,
+                "_height": 128,
+                "x": 0,
+                "y": 0,
+                "rotation": 0,
+                "scale": {
+                    "x": 1,
+                    "y": 1
+                },
+                "pivot": {
+                    "x": 0,
+                    "y": 0
+                },
+                "align": 0,
+                "smooth": false,
+                "unequal": false,
+                "alpha": 1,
+                "mirror": 0,
+                "repeat": 1,
+                "backgroundColor": {
+                    "alpha": 1,
+                    "hex": "#FFFFFF",
+                    "rgba": "rgba(255,255,255,1)"
+                },
+                "visible": true
+            },
+            "scripts": [
+                ":t8*LDH36r/FLt%H]vwE",
+                "5z{=K4aJ?9f+1vw`4Ft4",
+                "54*Bm.N%G:^{v7*Flq1."
+            ],
+            "variables": {},
+            "blocks": {
+                ":t8*LDH36r/FLt%H]vwE": {
+                    "category": "events",
+                    "fields": {},
+                    "id": ":t8*LDH36r/FLt%H]vwE",
+                    "inputs": {
+                        "SUBSTACK": {
+                            "name": "SUBSTACK",
+                            "block": "}*]OunY|}5=o@M2lPhb-",
+                            "shadow": null
+                        }
+                    },
+                    "next": null,
+                    "opcode": "event_whenflagclicked",
+                    "parent": null,
+                    "shadow": false,
+                    "topLevel": true,
+                    "x": 20,
+                    "y": 20
+                },
+                "`MDXsw_t(kmR!LF~6R*`": {
+                    "category": "animation",
+                    "fields": {
+                        "OPTION_LIST": {
+                            "name": "OPTION_LIST",
+                            "value": "_loop_"
+                        }
+                    },
+                    "id": "`MDXsw_t(kmR!LF~6R*`",
+                    "inputs": {
+                        "SECS": {
+                            "name": "SECS",
+                            "block": "!XC7[**3MuEw]!)-nUd`",
+                            "shadow": "!XC7[**3MuEw]!)-nUd`"
+                        }
+                    },
+                    "next": null,
+                    "opcode": "looks_animation",
+                    "parent": "}*]OunY|}5=o@M2lPhb-",
+                    "shadow": false,
+                    "topLevel": false
+                },
+                "!XC7[**3MuEw]!)-nUd`": {
+                    "category": "null",
+                    "fields": {
+                        "NUM": {
+                            "name": "NUM",
+                            "value": 0.4
+                        }
+                    },
+                    "id": "!XC7[**3MuEw]!)-nUd`",
+                    "inputs": {},
+                    "next": null,
+                    "opcode": "math_number",
+                    "parent": "`MDXsw_t(kmR!LF~6R*`",
+                    "shadow": true,
+                    "topLevel": false
+                },
+                "5z{=K4aJ?9f+1vw`4Ft4": {
+                    "id": "5z{=K4aJ?9f+1vw`4Ft4",
+                    "category": "events",
+                    "opcode": "event_when_object_touching_object",
+                    "inputs": {
+                        "SUBSTACK": {
+                            "name": "SUBSTACK",
+                            "block": "{4g}o2tgpV8?C/=$sJG]",
+                            "shadow": null
+                        }
+                    },
+                    "fields": {
+                        "OPTION_LIST1": {
+                            "name": "OPTION_LIST1",
+                            "value": "_self_"
+                        },
+                        "OPTION_LIST2": {
+                            "name": "OPTION_LIST2",
+                            "value": ":_2XsA,.lsg5s4UprWu9",
+                            "text": "所有敌机-小"
+                        }
+                    },
+                    "next": null,
+                    "topLevel": true,
+                    "parent": null,
+                    "shadow": false,
+                    "x": "0",
+                    "y": "0"
+                },
+                "{4g}o2tgpV8?C/=$sJG]": {
+                    "id": "{4g}o2tgpV8?C/=$sJG]",
+                    "category": "motion",
+                    "opcode": "motion_goto",
+                    "inputs": {},
+                    "fields": {
+                        "OPTION_LIST": {
+                            "name": "OPTION_LIST",
+                            "value": "_random_"
+                        }
+                    },
+                    "next": null,
+                    "topLevel": false,
+                    "parent": "5z{=K4aJ?9f+1vw`4Ft4",
+                    "shadow": false,
+                    "x": "338",
+                    "y": "278"
+                },
+                "54*Bm.N%G:^{v7*Flq1.": {
+                    "id": "54*Bm.N%G:^{v7*Flq1.",
+                    "category": "events",
+                    "opcode": "event_when_object_touching_object",
+                    "inputs": {
+                        "SUBSTACK": {
+                            "name": "SUBSTACK",
+                            "block": "!IQ@lCIOIwrOy|a!qbE-",
+                            "shadow": null
+                        }
+                    },
+                    "fields": {
+                        "OPTION_LIST1": {
+                            "name": "OPTION_LIST1",
+                            "value": "_self_"
+                        },
+                        "OPTION_LIST2": {
+                            "name": "OPTION_LIST2",
+                            "value": "u`*j?_|/_^,F*7;nPGAH",
+                            "text": "所有侦察机"
+                        }
+                    },
+                    "next": null,
+                    "topLevel": true,
+                    "parent": null,
+                    "shadow": false,
+                    "x": 68,
+                    "y": 116
+                },
+                "!IQ@lCIOIwrOy|a!qbE-": {
+                    "id": "!IQ@lCIOIwrOy|a!qbE-",
+                    "category": "motion",
+                    "opcode": "motion_goto",
+                    "inputs": {},
+                    "fields": {
+                        "OPTION_LIST": {
+                            "name": "OPTION_LIST",
+                            "value": "_random_"
+                        }
+                    },
+                    "next": null,
+                    "topLevel": false,
+                    "parent": "54*Bm.N%G:^{v7*Flq1.",
+                    "shadow": false
+                },
+                "}*]OunY|}5=o@M2lPhb-": {
+                    "id": "}*]OunY|}5=o@M2lPhb-",
+                    "category": "control",
+                    "opcode": "control_set_dragmode",
+                    "inputs": {},
+                    "fields": {
+                        "OPTION_LIST": {
+                            "name": "OPTION_LIST",
+                            "value": "_any_"
+                        }
+                    },
+                    "next": "`MDXsw_t(kmR!LF~6R*`",
+                    "topLevel": false,
+                    "parent": ":t8*LDH36r/FLt%H]vwE",
+                    "shadow": false,
+                    "x": "338",
+                    "y": "58"
+                }
+            },
+            "code": [],
+            "children": [],
+            "styles": [
+                "-_-ChCGvaGMx4FPrrZwmASjtiuEEAEYuveD5AU"
+            ],
+            "currentStyle": "-_-ChCGvaGMx4FPrrZwmASjtiuEEAEYuveD5AU",
+            "layers": [
+                "xlF`NnlKc)l+oIyOasaC"
+            ],
+            "name": "战机",
+            "pinyin": "ZJ"
+        }
+    },
+    "styles": {
+        "1_-_-ChDkMXnflOdAI5PlxSSznjbfEAEYpfaD5AU": {
+            "id": "1_-_-ChDkMXnflOdAI5PlxSSznjbfEAEYpfaD5AU",
+            "type": "sprite",
+            "frame": [
+                {
+                    "id": "1_-_-ChDkMXnflOdAI5PlxSSznjbfEAEYpfaD5AU",
+                    "url": "https://gamemaker.qpic.cn/luban/1_-_-ChDkMXnflOdAI5PlxSSznjbfEAEYpfaD5AU"
+                }
+            ],
+            "count": 1,
+            "name": "侦察机"
+        },
+        "1_-_-ChB7ggmk6YhI0JQkpv7LuQkjEAEYmveD5AU": {
+            "id": "1_-_-ChB7ggmk6YhI0JQkpv7LuQkjEAEYmveD5AU",
+            "type": "sprite",
+            "frame": [
+                {
+                    "id": "1_-_-ChB7ggmk6YhI0JQkpv7LuQkjEAEYmveD5AU",
+                    "url": "https://gamemaker.qpic.cn/luban/1_-_-ChB7ggmk6YhI0JQkpv7LuQkjEAEYmveD5AU"
+                }
+            ],
+            "count": 1,
+            "name": "敌机-小"
+        },
+        "-_-ChCGvaGMx4FPrrZwmASjtiuEEAEYuveD5AU": {
+            "id": "-_-ChCGvaGMx4FPrrZwmASjtiuEEAEYuveD5AU",
+            "type": "sprite",
+            "frame": [
+                {
+                    "id": "1_-_-ChDF73sdRjVJFas3EnjZk-nHEAEYuveD5AU",
+                    "url": "https://gamemaker.qpic.cn/luban/1_-_-ChDF73sdRjVJFas3EnjZk-nHEAEYuveD5AU"
+                },
+                {
+                    "id": "1-_-ChBLpb1HH6tFaIVWDjlbUg7rEAEYuveD5AU",
+                    "url": "https://gamemaker.qpic.cn/luban/1_-_-ChBLpb1HH6tFaIVWDjlbUg7rEAEYuveD5AU"
+                }
+            ],
+            "count": 1,
+            "name": "战机"
+        }
+    },
+    "sounds": {},
+    "variables": {},
+    "messages": {},
+    "outlines": {
+        "1_-_-ChDkMXnflOdAI5PlxSSznjbfEAEYpfaD5AU": [
+            [
+                61,
+                18
+            ],
+            [
+                98,
+                47
+            ],
+            [
+                97,
+                79
+            ],
+            [
+                71,
+                105
+            ],
+            [
+                31,
+                79
+            ],
+            [
+                31,
+                47
+            ],
+            [
+                61,
+                18
+            ]
+        ],
+        "1_-_-ChB7ggmk6YhI0JQkpv7LuQkjEAEYmveD5AU": [
+            [
+                26,
+                17
+            ],
+            [
+                52,
+                26
+            ],
+            [
+                26,
+                54
+            ],
+            [
+                7,
+                32
+            ],
+            [
+                26,
+                17
+            ]
+        ],
+        "1_-_-ChDF73sdRjVJFas3EnjZk-nHEAEYuveD5AU": [
+            [
+                62,
+                3
+            ],
+            [
+                113,
+                79
+            ],
+            [
+                101,
+                113
+            ],
+            [
+                34,
+                114
+            ],
+            [
+                15,
+                89
+            ],
+            [
+                62,
+                3
+            ]
+        ],
+        "1_-_-ChBLpb1HH6tFaIVWDjlbUg7rEAEYuveD5AU": [
+            [
+                62,
+                3
+            ],
+            [
+                112,
+                78
+            ],
+            [
+                98,
+                125
+            ],
+            [
+                33,
+                125
+            ],
+            [
+                15,
+                89
+            ],
+            [
+                62,
+                3
+            ]
+        ]
+    },
+    "physicalmodels": {},
+    "codeType": 0,
+    "sprites": {
+        "Q=mL^h`xBXiee@**/enW": {
+            "id": "Q=mL^h`xBXiee@**/enW",
+            "type": "background",
+            "properties": {
+                "x": 0,
+                "y": 0,
+                "visible": true
+            },
+            "scene": "f.CrQNX7Yd:._Lb0Jq7M",
+            "origin": "pk-3avq?l=UK;.b.WRS-",
+            "name": "背景"
+        },
+        "7]M[Y|}uUkJ8]]Ms}[vA": {
+            "id": "7]M[Y|}uUkJ8]]Ms}[vA",
+            "type": "sprite",
+            "properties": {
+                "x": -166.1,
+                "y": 159.8,
+                "visible": true
+            },
+            "origin": "u`*j?_|/_^,F*7;nPGAH",
+            "scene": "f.CrQNX7Yd:._Lb0Jq7M",
+            "name": "侦察机"
+        },
+        "vOea;t5(Og]NP|o{GqgV": {
+            "id": "vOea;t5(Og]NP|o{GqgV",
+            "type": "sprite",
+            "properties": {
+                "x": 139.8,
+                "y": 37,
+                "visible": true
+            },
+            "origin": ":_2XsA,.lsg5s4UprWu9",
+            "scene": "f.CrQNX7Yd:._Lb0Jq7M",
+            "name": "敌机-小"
+        },
+        "xlF`NnlKc)l+oIyOasaC": {
+            "id": "xlF`NnlKc)l+oIyOasaC",
+            "type": "sprite",
+            "properties": {
+                "x": -25.4,
+                "y": -441.5,
+                "visible": true
+            },
+            "origin": "Ver:aDv)PfgYn6B0]_ct",
+            "scene": "f.CrQNX7Yd:._Lb0Jq7M",
+            "name": "战机"
+        }
+    },
+    "procedures": {},
+    "behaviors": {},
+    "version": 10
+}
