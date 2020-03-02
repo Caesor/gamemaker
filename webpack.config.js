@@ -35,7 +35,9 @@ module.exports = {
 		phaser: './src/pages/phaser/index.js',
 		outline: './src/pages/outline/index.js',
 		plugin: './src/pages/plugin/index.js',
-		engine: './src/pages/engine/index.js'
+		engine: './src/pages/engine/index.js',
+		performance: './src/pages/performance/index.js',
+		loader: './src/pages/loader/index.js'
 	},
 
 	resolve: {
@@ -82,6 +84,16 @@ module.exports = {
 			filename: 'engine.html',
 			template: 'src/pages/index/index.html',
 			chunks: ['engine']
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'performance.html',
+			template: 'src/pages/performance/index.html',
+			chunks: ['performance']
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'loader.html',
+			template: 'src/pages/loader/index.html',
+			chunks: ['loader']
 		})
 	],
 
