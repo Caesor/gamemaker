@@ -1,9 +1,13 @@
 import * as PIXI from 'pixi.js'
-import Loader from '@/pages/index/core/render/loader';
-import ControlBox from '@/components/controlBox';
+import Loader from '@/components/loader';
 import Outline from '@/components/outline';
+import Circle from '@/components/circle';
+import Polygon from '@/components/polygon'
 import config from '@/config/default.json';
-import getArea from '@/libs/area.js'
+import * as utils from '@/libs/area.js'
+
+import { getOutline } from '@/libs/collision/outline';
+import { convexHullOfPoints } from '@/libs/collision/geom'
 
 const STAGE_WIDTH = 1000;
 const STAGE_HEIGHT = 800;
@@ -32,6 +36,7 @@ const loaderManager = new Loader({
         for(let i = 0; i < spriteList.length; i++) {
             const { id, name, styles } = spriteList[i];
             const texture = resource[config.styles[styles[0]].frame[0].id];
+            // const texture = resource['1_-_-ChBJdrSHbGhNYIzdu-qovOdnEAEYzdCD5AU'];
             const sprite = new PIXI.Sprite(texture);
             sprite.id = id;
             sprite.name = name;
@@ -44,14 +49,31 @@ const loaderManager = new Loader({
                 sprite.height = 200;
                 sprite.width =  width / height * 200;
             }
-            sprite.area = getArea(texture.baseTexture.resource.source, sprite.width, sprite.height);
-            console.log(sprite.width, sprite.height, sprite.name, sprite.area)
+            const imageData = utils.getImageData(texture.baseTexture.resource.source, sprite.width, sprite.height)
+            sprite.area = utils.getArea(imageData);
+            const points = getOutline(imageData, sprite.width, sprite.height);
+            sprite.points = convexHullOfPoints(points);
+            console.log(name, '点:', sprite.points.length - 1, sprite.points);
+            console.log(parseInt(sprite.width), parseInt(sprite.height), sprite.name, sprite.area)
             sprite.x = (i % 4) * 220;
             sprite.y = Math.floor(i/4) * 300;
             sprite.anchor.set(0.5)
             playground.addChild(sprite);
 
-            const ctrl = new Outline(sprite);
+            // const ctrl = new Polygon(sprite);
+            const ctrl = new PIXI.Graphics();
+            ctrl.beginFill(0x000000, 0.01);
+            ctrl.lineStyle(1, 0x27AD8A);
+            const path = sprite.points.map( ({x, y}) => {
+                return new PIXI.Point(x, y);
+            })
+            ctrl.drawPolygon(path);
+            ctrl.endFill();
+            ctrl.x = (i % 4) * 220;
+            ctrl.y = Math.floor(i/4) * 300;
+            // ctrl.anchor.set(0.5)
+            // const ctrl = new Circle(sprite);
+            // const ctrl = new Outline(sprite, 'circle')
             playground.addChild(ctrl);
         }
     },

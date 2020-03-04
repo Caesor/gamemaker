@@ -138,11 +138,11 @@ export function convexHullOfPoints(points) {
     // console.log('凸包', Date.now() - startTime);
     startTime = Date.now();
     // 矩形点集越小，碰撞性能越高
-    console.log('')
+    console.log(points.length)
     if(points.length > 2000){
-        var simplifyList = simplify(pointsOnHull, 50, true);
+        var simplifyList = simplify(pointsOnHull, 5);
     }else{
-        var simplifyList = simplify(pointsOnHull, 5, true);
+        var simplifyList = simplify(pointsOnHull, 1, true);
     }
     
 

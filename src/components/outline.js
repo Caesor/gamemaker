@@ -24,14 +24,13 @@ export default class Outline extends PIXI.Container{
         const {x, y, width, height, rotation } = sprite;
         this.x = x;
         this.y = y;
-        // this.width = width;
-        // this.height = height;
+        this.bounds = { x, y, width, height };
+        
         this.rotation = rotation;
         this.visible = true;
 
         this.scaleBtnActive = false;
         this.rotationBtnActive = false;
-        // this.pivotCenterActive = false;
         
         this.outline = this.drawObject({
             type: 'graphics',
@@ -51,26 +50,26 @@ export default class Outline extends PIXI.Container{
             }
         });
 
-        this.rotationBtn = this.drawObject({
-            type: 'sprite',
-            icon: 'https://res.wx.qq.com/wechatgame/product/cdn/luban/icon-rotate_2aaffb75.png',
-            properties: {
-                interactive: true,
-                cursor: 'pointer',
-                x: -width / 2,
-                y: -height / 2,
-                width: BtnBigSize,
-                height: BtnBigSize,
-                scale: 0.5,
-                anchor: 0.5,
-            },
-            events: {
-                pointerdown: this.rotationBtnDragStart.bind(this),
-                pointermove: this.rotationBtnDragMove.bind(this),
-                pointerup: this.rotationBtnDragEnd.bind(this),
-                pointerupoutside: this.rotationBtnDragEnd.bind(this)
-            }
-        });
+        // this.rotationBtn = this.drawObject({
+        //     type: 'sprite',
+        //     icon: 'https://res.wx.qq.com/wechatgame/product/cdn/luban/icon-rotate_2aaffb75.png',
+        //     properties: {
+        //         interactive: true,
+        //         cursor: 'pointer',
+        //         x: -width / 2,
+        //         y: -height / 2,
+        //         width: BtnBigSize,
+        //         height: BtnBigSize,
+        //         scale: 0.5,
+        //         anchor: 0.5,
+        //     },
+        //     events: {
+        //         pointerdown: this.rotationBtnDragStart.bind(this),
+        //         pointermove: this.rotationBtnDragMove.bind(this),
+        //         pointerup: this.rotationBtnDragEnd.bind(this),
+        //         pointerupoutside: this.rotationBtnDragEnd.bind(this)
+        //     }
+        // });
 
         this.scaleBtn = this.drawObject({
             type: 'sprite',
@@ -94,11 +93,11 @@ export default class Outline extends PIXI.Container{
         })
 
         this.addChild(this.outline);
-        this.addChild(this.rotationBtn);
+        // this.addChild(this.rotationBtn);
         this.addChild(this.scaleBtn);
 
         // redraw the box line, do not scale it
-        this.updateOutline();
+        this.updateOutline(width, height);
         // location & size
         this.updateBtns();
     }
@@ -132,52 +131,32 @@ export default class Outline extends PIXI.Container{
         return  obj;
     }
 
-    updateOutline(w, h) {
-        let width, height;
-
-        width = this.sprite.width;
-        height = this.sprite.height;
-
+    updateOutline(width, height) {
         this.outline.clear();
         this.outline.beginFill(0x000000, 0.01);
         this.outline.lineStyle(1, 0x27AD8A);
         this.outline.drawRect(-width/2, -height/2, width, height);
         this.outline.endFill();
+        Object.assign(this.bounds, { width, height});
     }
 
     updateBtns() {
         this.scaleBtn.x = this.outline.width / 2;
         this.scaleBtn.y = this.outline.height / 2;
 
-        this.rotationBtn.x = -this.outline.width / 2;
-        this.rotationBtn.y = -this.outline.height / 2;
+        // this.rotationBtn.x = -this.outline.width / 2;
+        // this.rotationBtn.y = -this.outline.height / 2;
 
-        if(this.sprite.width <= 80) {
+        if(this.bounds.width <= 80) {
             this.scaleBtn.width = BtnSmallSize;
             this.scaleBtn.height = BtnSmallSize;
-            this.rotationBtn.width = BtnSmallSize;
-            this.rotationBtn.height = BtnSmallSize;
+            // this.rotationBtn.width = BtnSmallSize;
+            // this.rotationBtn.height = BtnSmallSize;
         }else {
             this.scaleBtn.width = BtnBigSize;
             this.scaleBtn.height = BtnBigSize;
-            this.rotationBtn.width = BtnBigSize;
-            this.rotationBtn.height = BtnBigSize;
-        }
-    }
-
-    rotationBtnDragStart(e) {
-        this.rotationBtnActive = true;
-        const { x, y } = e.data.getLocalPosition(this.parent);
-        this.preRotation = positionToRotation(x - this.x, y - this.y) + Math.PI / 2 - this.rotation;
-    }
-    rotationBtnDragEnd() {
-        this.rotationBtnActive = false;
-    }
-    rotationBtnDragMove(e) {
-        if(this.rotationBtnActive) {
-            const { x, y } = e.data.getLocalPosition(this.parent);
-            this.rotation = Number(positionToRotation(x - this.x, y - this.y) + Math.PI / 2 - this.preRotation).toFixed(2);
-            // this.sprite.rotation = this.rotation;
+            // this.rotationBtn.width = BtnBigSize;
+            // this.rotationBtn.height = BtnBigSize;
         }
     }
 
@@ -190,24 +169,10 @@ export default class Outline extends PIXI.Container{
     scaleBtnDragMove(e) {
         if(this.scaleBtnActive) {
             const { x, y } = e.data.getLocalPosition(this.parent);
-            // change sprite
-            // console.log(this.width, this.height, this.outline.width, this.outline.height);
-            const width = Math.max(this.outline.width + (x - this.pre.x) * 2, MINSCALE)
-            const height = Math.max(this.outline.height + (y - this.pre.y) * 2, MINSCALE);
-
-            // console.log(width, height)
-            this.outline.width = width;
-            this.outline.height = height;
-
-            // if(true) {
-            //     // this.sprite.height = Number(width * this.sprite.height / this.sprite.width).toFixed(2);
-            //     // this.sprite.width = width.toFixed(2);
-            // }else {
-            //     this.sprite.height += (y - this.pre.y) * 2;
-            // }
-    
+            const width = Math.max(this.bounds.width + (x - this.pre.x) * 2, MINSCALE)
+            const height = Math.max(this.bounds.height + (y - this.pre.y) * 2, MINSCALE);
             this.pre = {x, y};
-            // this.updateOutline(1,1);
+            this.updateOutline(width, height);
             this.updateBtns();
         }
     }
@@ -215,6 +180,7 @@ export default class Outline extends PIXI.Container{
     scaleBtnDragEnd(){
         this.scaleBtnActive = false;
         this.pre = null;
+        console.log(this.bounds)
     }
 
     outlineDragStart(e) {
@@ -232,6 +198,24 @@ export default class Outline extends PIXI.Container{
     }
 
     outlineDragEnd() {
+        Object.assign(this.bounds, {x: this.x, y: this.y})
         this.dragging = false;
+        console.log(this.bounds)
+    }
+
+    rotationBtnDragStart(e) {
+        this.rotationBtnActive = true;
+        const { x, y } = e.data.getLocalPosition(this.parent);
+        this.preRotation = positionToRotation(x - this.x, y - this.y) + Math.PI / 2 - this.rotation;
+    }
+    rotationBtnDragEnd() {
+        this.rotationBtnActive = false;
+    }
+    rotationBtnDragMove(e) {
+        if(this.rotationBtnActive) {
+            const { x, y } = e.data.getLocalPosition(this.parent);
+            this.rotation = Number(positionToRotation(x - this.x, y - this.y) + Math.PI / 2 - this.preRotation).toFixed(2);
+            // this.sprite.rotation = this.rotation;
+        }
     }
 }

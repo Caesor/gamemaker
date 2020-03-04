@@ -34,12 +34,6 @@ export default class Loader {
         });
     }
 
-    addComplete(onComplete) {
-        this.loader.onComplete.add(() => {
-            onComplete && onComplete()
-        });
-    }
-
     load(styles) {
         const list = Object.keys(styles);
 
