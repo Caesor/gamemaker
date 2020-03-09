@@ -60,32 +60,19 @@ const loaderManager = new Loader({
             sprite.anchor.set(0.5)
             playground.addChild(sprite);
 
-
-            var img_width = texture.frame.width,
-            img_height = texture.frame.height;
-            const { width, height } = sprite;
+            const { x, y, width, height } = texture.frame;
             const canvas = document.createElement("canvas");
-            var width1 = canvas.width = texture.width;
-            var height2 = canvas.height = texture.height;
-            // canvas.width = width;
-            // canvas.height = height;
-            var ctx = canvas.getContext("2d");
-            ctx.clearRect(0, 0, width1, height2);
-            ctx.drawImage(texture.baseTexture.resource.source, texture.frame.x || 0, texture.frame.y || 0, img_width, img_height, 0, 0, img_width, img_height);
-            //console.log('画图', Date.now() - startTime);
-            var colorData = ctx.getImageData(0, 0, width1, height2).data;
-            //console.log('获取像素数据', Date.now() - startTime);
-            // debugger;
-            // 获取描边数据点，无序的。
-            var points = getOutline(colorData, width1, height2);
-            //console.log('获取描边数据点', Date.now() - startTime);
-            // 凸包算法找出多边形点集合
-            var points = convexHullOfPoints(points);
-            //console.log('凸包', Date.now() - startTime);
-            // console.log(JSON.stringify(points));
-            // 转化为数组格式
-            // console.error('总耗时', Date.now() - startTime);
-            var points = transformPolygon(points, width1, height2, sprite)
+            const textureWidth = canvas.width = texture.width;
+            const textureHeight = canvas.height = texture.height;
+            const ctx = canvas.getContext("2d");
+            ctx.clearRect(0, 0, textureWidth, textureHeight);
+            ctx.drawImage(texture.baseTexture.resource.source, x || 0, y || 0, width, height, 0, 0, width, height);
+            const colorData = ctx.getImageData(0, 0, textureWidth, textureHeight).data;
+            // 1.获取描边数据点，无序的
+            // 2.凸包算法找出多边形点集合
+            let points = convexHullOfPoints(getOutline(colorData, textureWidth, textureHeight));
+            // 3.坐标变换
+            points = transformPolygon(points, textureWidth, textureHeight, sprite)
             console.log('描边大小', points.length);
 
             // const ctrl = new Polygon(sprite);
@@ -97,9 +84,6 @@ const loaderManager = new Loader({
             })
             ctrl.drawPolygon(path);
             ctrl.endFill();
-            ctrl.x = (i % 4) * 220;
-            ctrl.y = Math.floor(i/4) * 300;
-            // ctrl.anchor.set(0.5)
             // const ctrl = new Circle(sprite);
             // const ctrl = new Outline(sprite, 'circle')
             playground.addChild(ctrl);
