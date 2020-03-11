@@ -33,8 +33,8 @@ const loaderManager = new Loader({
     },
     onComplete: (resource) => {
         console.log('sprite number:', spriteList.length)
-        for(let i = 0; i < spriteList.length; i++) {
-            const { id, name, styles } = spriteList[i];
+        // for(let i = 0; i < spriteList.length; i++) {
+            const { id, name, styles } = spriteList[2];
             const texture = resource[config.styles[styles[0]].frame[0].id];
             // const texture = resource['1_-_-ChBJdrSHbGhNYIzdu-qovOdnEAEYzdCD5AU'];
             const sprite = new PIXI.Sprite(texture);
@@ -49,45 +49,42 @@ const loaderManager = new Loader({
                 sprite.height = 200;
                 sprite.width =  w / h * 200;
             }
-            // const imageData = utils.getImageData(texture.baseTexture.resource.source, sprite.width, sprite.height)
-            // sprite.area = utils.getArea(imageData);
-            // const points = getOutline(imageData, sprite.width, sprite.height);
-            // sprite.points = convexHullOfPoints(points);
-            // console.log(name, '点:', sprite.points.length - 1, sprite.points);
-            // console.log(parseInt(sprite.width), parseInt(sprite.height), sprite.name, sprite.area)
-            sprite.x = (i % 4) * 220;
-            sprite.y = Math.floor(i/4) * 300;
+            
+            // sprite.x = (i % 4) * 220;
+            // sprite.y = Math.floor(i/4) * 300;
             sprite.anchor.set(0.5)
             playground.addChild(sprite);
 
-            const { x, y, width, height } = texture.frame;
-            const canvas = document.createElement("canvas");
-            const textureWidth = canvas.width = texture.width;
-            const textureHeight = canvas.height = texture.height;
-            const ctx = canvas.getContext("2d");
-            ctx.clearRect(0, 0, textureWidth, textureHeight);
-            ctx.drawImage(texture.baseTexture.resource.source, x || 0, y || 0, width, height, 0, 0, width, height);
-            const colorData = ctx.getImageData(0, 0, textureWidth, textureHeight).data;
+            const textureWidth = texture.width;
+            const textureHeight = texture.height;
+
+            const imageData = utils.getImageData(texture);
+            const imageArea = utils.getArea(imageData);
+            const r = textureWidth > textureHeight ? textureWidth / 2: textureHeight / 2;
+            const circle = Math.PI * Math.pow(r, 2);
+            const rect = textureWidth * textureHeight;
+            console.log('area', imageArea, circle, rect);
             // 1.获取描边数据点，无序的
             // 2.凸包算法找出多边形点集合
-            let points = convexHullOfPoints(getOutline(colorData, textureWidth, textureHeight));
+            let points = convexHullOfPoints(getOutline(imageData, textureWidth, textureHeight));
             // 3.坐标变换
             points = transformPolygon(points, textureWidth, textureHeight, sprite)
             console.log('描边大小', points.length);
 
-            // const ctrl = new Polygon(sprite);
-            const ctrl = new PIXI.Graphics();
-            ctrl.beginFill(0x000000, 0.01);
-            ctrl.lineStyle(1, 0x27AD8A);
-            const path = points.map( ({x, y}) => {
-                return new PIXI.Point(x, y);
-            })
-            ctrl.drawPolygon(path);
-            ctrl.endFill();
+            sprite.points = points;
+            const ctrl = new Polygon(sprite);
+            // const ctrl = new PIXI.Graphics();
+            // ctrl.beginFill(0x000000, 0.01);
+            // ctrl.lineStyle(1, 0x27AD8A);
+            // const path = points.map( ({x, y}) => {
+            //     return new PIXI.Point(x, y);
+            // })
+            // ctrl.drawPolygon(path);
+            // ctrl.endFill();
             // const ctrl = new Circle(sprite);
-            // const ctrl = new Outline(sprite, 'circle')
+            // const ctrl = new Outline(sprite)
             playground.addChild(ctrl);
-        }
+        // }
     },
     onError: e => {
         console.error(e);
@@ -103,24 +100,9 @@ function transformPolygon(polygon, width, height, sprite){
             x: (point.x - width / 2) * scale.x + position.x,
             y: (point.y - height / 2) * scale.y + position.y
         };
-        // 处理旋转角度
-        // p = makePointRotate(this.position, p, this.rotationValue)
-        // p = this.adjustPositionByPoint(p);
         newPoints.push(p);
     });
     return newPoints;
-}
-function makePointRotate(start, end, angle) {
-    let offsetX = end.x - start.x;
-    let offsetY = end.y - start.y;
-
-    let cos = Math.cos(angle);
-    let sin = Math.sin(angle);
-
-    return {
-        x: start.x + offsetX * cos - offsetY * sin,
-        y: start.y + offsetY * cos + offsetX * sin
-    }
 }
 
 loaderManager.load(config.styles);

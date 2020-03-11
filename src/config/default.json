@@ -79,6 +79,55 @@
             "scene": "hm_s#bkB_,J~5=a=ZvE!",
             "pinyin": "BJ"
         },
+        "circle": {
+            "id": "circle",
+            "type": "sprite",
+            "name": "圆",
+            "properties": {
+                "width": 200,
+                "height": 200,
+                "_width": 258,
+                "_height": 386,
+                "x": 0,
+                "y": 0,
+                "rotation": 0,
+                "scale": {
+                    "x": 1,
+                    "y": 1
+                },
+                "pivot": {
+                    "x": 0,
+                    "y": 0
+                },
+                "align": 0,
+                "smooth": false,
+                "unequal": false,
+                "alpha": 1,
+                "mirror": 0,
+                "repeat": 1,
+                "backgroundColor": {
+                    "alpha": 1,
+                    "hex": "#FFFFFF",
+                    "rgba": "rgba(255,255,255,1)"
+                },
+                "visible": true
+            },
+            "layers": [
+                "z5-O00T%P~E?|WdfDfmj"
+            ],
+            "scripts": [
+                "OF7JmbxC/ngrx2V;ia^r"
+            ],
+            "variables": {},
+            "behaviors": {},
+            "code": [],
+            "children": [],
+            "styles": [
+                "test"
+            ],
+            "currentStyle": "test",
+            "pinyin": "ZJ"
+        },
         "(/2UpCEdoY,mAAgP)3p/": {
             "id": "(/2UpCEdoY,mAAgP)3p/",
             "type": "sprite",
@@ -520,10 +569,11 @@
     },
     "styles": {
         "test": {
+            "id": "test",
             "name": "圆",
             "type": "sprite",
             "frame": [
-                { "id": "circle", "url": "https://gamemaker.qpic.cn/luban/1_-_-ChCeV240ZCNHqajXJcnCW4RoEAEYstOE5AU"}
+                { "id": "1_-_-ChAIaNyacNFHbIYjzQis8564EAEYg7uE5AU", "url": "https://gamemaker.qpic.cn/luban/1_-_-ChAIaNyacNFHbIYjzQis8564EAEYg7uE5AU"}
             ]
         },
         "-_-ChALEjMdoU5E_JhIupnXM6wvEAEYzdCD5AU": {

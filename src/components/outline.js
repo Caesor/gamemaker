@@ -14,9 +14,10 @@ const positionToRotation = function (x, y) {
 };
 
 export default class Outline extends PIXI.Container{
-    constructor(sprite) {
+    constructor(sprite, options = {}) {
         super();
         this.sprite = sprite;
+        this.options = options;
         this.init(sprite);
     }
 
@@ -31,11 +32,13 @@ export default class Outline extends PIXI.Container{
 
         this.scaleBtnActive = false;
         this.rotationBtnActive = false;
+
+        const { scaleBtn = true, rotationBtn = false, outline } = this.options;
         
-        this.outline = this.drawObject({
+        this.outline = this.drawObject(Object.assign({
             type: 'graphics',
             properties: {
-                interactive: true,
+                interactive: false,
                 cursor: 'move',
                 x: 0,
                 y: 0,
@@ -48,30 +51,30 @@ export default class Outline extends PIXI.Container{
                 pointerup: this.outlineDragEnd.bind(this),
                 pointerupoutside: this.outlineDragEnd.bind(this)
             }
-        });
+        }, outline));
 
-        // this.rotationBtn = this.drawObject({
-        //     type: 'sprite',
-        //     icon: 'https://res.wx.qq.com/wechatgame/product/cdn/luban/icon-rotate_2aaffb75.png',
-        //     properties: {
-        //         interactive: true,
-        //         cursor: 'pointer',
-        //         x: -width / 2,
-        //         y: -height / 2,
-        //         width: BtnBigSize,
-        //         height: BtnBigSize,
-        //         scale: 0.5,
-        //         anchor: 0.5,
-        //     },
-        //     events: {
-        //         pointerdown: this.rotationBtnDragStart.bind(this),
-        //         pointermove: this.rotationBtnDragMove.bind(this),
-        //         pointerup: this.rotationBtnDragEnd.bind(this),
-        //         pointerupoutside: this.rotationBtnDragEnd.bind(this)
-        //     }
-        // });
+        rotationBtn && (this.rotationBtn = this.drawObject({
+            type: 'sprite',
+            icon: 'https://res.wx.qq.com/wechatgame/product/cdn/luban/icon-rotate_2aaffb75.png',
+            properties: {
+                interactive: true,
+                cursor: 'pointer',
+                x: -width / 2,
+                y: -height / 2,
+                width: BtnBigSize,
+                height: BtnBigSize,
+                scale: 0.5,
+                anchor: 0.5,
+            },
+            events: {
+                pointerdown: this.rotationBtnDragStart.bind(this),
+                pointermove: this.rotationBtnDragMove.bind(this),
+                pointerup: this.rotationBtnDragEnd.bind(this),
+                pointerupoutside: this.rotationBtnDragEnd.bind(this)
+            }
+        }));
 
-        this.scaleBtn = this.drawObject({
+        scaleBtn && (this.scaleBtn = this.drawObject({
             type: 'sprite',
             icon: 'https://res.wx.qq.com/wechatgame/product/cdn/luban/icon-scale_be8d480f.png',
             properties: {
@@ -90,11 +93,11 @@ export default class Outline extends PIXI.Container{
                 pointerup: this.scaleBtnDragEnd.bind(this),
                 pointerupoutside: this.scaleBtnDragEnd.bind(this)
             }
-        })
+        }))
 
         this.addChild(this.outline);
-        // this.addChild(this.rotationBtn);
-        this.addChild(this.scaleBtn);
+        this.rotationBtn && this.addChild(this.rotationBtn);
+        this.scaleBtn && this.addChild(this.scaleBtn);
 
         // redraw the box line, do not scale it
         this.updateOutline(width, height);
@@ -141,22 +144,33 @@ export default class Outline extends PIXI.Container{
     }
 
     updateBtns() {
-        this.scaleBtn.x = this.outline.width / 2;
-        this.scaleBtn.y = this.outline.height / 2;
-
-        // this.rotationBtn.x = -this.outline.width / 2;
-        // this.rotationBtn.y = -this.outline.height / 2;
-
+        if(this.scaleBtn) {
+            this.scaleBtn.x = this.outline.width / 2;
+            this.scaleBtn.y = this.outline.height / 2;
+        }
+        if(this.rotationBtn){
+            this.rotationBtn.x = -this.outline.width / 2;
+            this.rotationBtn.y = -this.outline.height / 2;
+        }
         if(this.bounds.width <= 80) {
-            this.scaleBtn.width = BtnSmallSize;
-            this.scaleBtn.height = BtnSmallSize;
-            // this.rotationBtn.width = BtnSmallSize;
-            // this.rotationBtn.height = BtnSmallSize;
+            if(this.scaleBtn) {
+                this.scaleBtn.width = BtnSmallSize;
+                this.scaleBtn.height = BtnSmallSize;
+            }
+            if(this.rotationBtn) {
+                this.rotationBtn.width = BtnSmallSize;
+                this.rotationBtn.height = BtnSmallSize;
+            }
+            
         }else {
-            this.scaleBtn.width = BtnBigSize;
-            this.scaleBtn.height = BtnBigSize;
-            // this.rotationBtn.width = BtnBigSize;
-            // this.rotationBtn.height = BtnBigSize;
+            if(this.scaleBtn) {
+                this.scaleBtn.width = BtnBigSize;
+                this.scaleBtn.height = BtnBigSize;
+            }
+            if(this.rotationBtn) {
+                this.rotationBtn.width = BtnBigSize;
+                this.rotationBtn.height = BtnBigSize;
+            }
         }
     }
 
@@ -173,6 +187,7 @@ export default class Outline extends PIXI.Container{
             const height = Math.max(this.bounds.height + (y - this.pre.y) * 2, MINSCALE);
             this.pre = {x, y};
             this.updateOutline(width, height);
+            // console.log(width, height)
             this.updateBtns();
         }
     }
