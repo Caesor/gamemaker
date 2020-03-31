@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-
+const glob = require('glob');
 /*
  * SplitChunksPlugin is enabled by default and replaced
  * deprecated CommonsChunkPlugin. It automatically identifies modules which
@@ -26,19 +26,24 @@ const CopyPlugin = require('copy-webpack-plugin');
  *
  */
 
+const entries = glob.sync("./src/pages/*/index.js");
+const map = Object.create(null);
+let plugs = [];
+entries.map(entry => {
+	const p = entry.match(/pages\/(\w+)\/index.js$/i)[1]
+	map[p] = entry;
+	plugs.push(new HtmlWebpackPlugin({
+		filename: `${p}.html`,
+		// template: `src/pages/${p}/index.html`,
+		chunks: [p]
+	}))
+});
+// console.log(map)
+
 module.exports = {
 	mode: 'development',
 
-	entry: {
-		index: './src/pages/index/index.js',
-		collision: './src/pages/test/index.js',
-		phaser: './src/pages/phaser/index.js',
-		outline: './src/pages/outline/index.js',
-		plugin: './src/pages/plugin/index.js',
-		engine: './src/pages/engine/index.js',
-		performance: './src/pages/performance/index.js',
-		loader: './src/pages/loader/index.js'
-	},
+	entry: map,
 
 	resolve: {
 		alias: {
@@ -51,50 +56,15 @@ module.exports = {
 	},
 
 	plugins: [
+		new webpack.ProvidePlugin({
+			PIXI: 'pixi.js'
+		  }),
 		new CleanWebpackPlugin(),
 		new webpack.ProgressPlugin(),
 		new CopyPlugin([
-			{ from: './src/assets', to: 'assets' }
+			{ from: 'src/assets', to: 'assets' }
 		]),
-		new HtmlWebpackPlugin({
-			filename: 'index.html',
-			template: 'src/pages/index/index.html',
-			chunks: ['index']
-		}),
-		new HtmlWebpackPlugin({
-			filename: 'outline.html',
-			template: 'src/pages/outline/index.html',
-			chunks: ['outline']
-		}),
-		new HtmlWebpackPlugin({
-			filename: 'test.html',
-			template: 'src/pages/test/index.html',
-			chunks: ['collision']
-		}),
-		new HtmlWebpackPlugin({
-			filename: 'phaser.html',
-			template: 'src/pages/phaser/index.html',
-			chunks: ['phaser']
-		}),
-		new HtmlWebpackPlugin({
-			filename: 'plugin.html',
-			chunks: ['plugin']
-		}),
-		new HtmlWebpackPlugin({
-			filename: 'engine.html',
-			template: 'src/pages/index/index.html',
-			chunks: ['engine']
-		}),
-		new HtmlWebpackPlugin({
-			filename: 'performance.html',
-			template: 'src/pages/performance/index.html',
-			chunks: ['performance']
-		}),
-		new HtmlWebpackPlugin({
-			filename: 'loader.html',
-			template: 'src/pages/loader/index.html',
-			chunks: ['loader']
-		})
+		...plugs
 	],
 
 	module: {

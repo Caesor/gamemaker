@@ -46,7 +46,7 @@ export default class Polygon extends Outline {
         }
         this.outline.closePath();
         this.outline.endFill();
-        Object.assign(this.bounds, { points });
+        Object.assign(this.bounds, { type:'polygon', points });
     }
 
     drawPoint(point, x, y){

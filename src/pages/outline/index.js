@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js'
 import Loader from '@/components/loader';
-import Outline from '@/components/outline';
+import Rect from '@/components/outline';
 import Circle from '@/components/circle';
 import Polygon from '@/components/polygon'
 import config from '@/config/default.json';
@@ -32,9 +32,10 @@ const loaderManager = new Loader({
 
     },
     onComplete: (resource) => {
+        const startTime = Date.now();
         console.log('sprite number:', spriteList.length)
         // for(let i = 0; i < spriteList.length; i++) {
-            const { id, name, styles } = spriteList[2];
+            const { id, name, styles } = spriteList[0];
             const texture = resource[config.styles[styles[0]].frame[0].id];
             // const texture = resource['1_-_-ChBJdrSHbGhNYIzdu-qovOdnEAEYzdCD5AU'];
             const sprite = new PIXI.Sprite(texture);
@@ -64,15 +65,23 @@ const loaderManager = new Loader({
             const circle = Math.PI * Math.pow(r, 2);
             const rect = textureWidth * textureHeight;
             console.log('area', imageArea, circle, rect);
+
+            const select = (circle - imageArea) < (rect - imageArea) ? 'circle' : 'rect'
+            let ctrl;
+            // if(select === 'circle') {
+                ctrl = new Circle(sprite);
+            // }else {
+            //     ctrl = new Rect(sprite)
+            // }
             // 1.获取描边数据点，无序的
             // 2.凸包算法找出多边形点集合
             let points = convexHullOfPoints(getOutline(imageData, textureWidth, textureHeight));
-            // 3.坐标变换
+            // // 3.坐标变换
             points = transformPolygon(points, textureWidth, textureHeight, sprite)
-            console.log('描边大小', points.length);
+            // console.log('描边大小', points.length);
 
             sprite.points = points;
-            const ctrl = new Polygon(sprite);
+            // const ctrl = new Polygon(sprite);
             // const ctrl = new PIXI.Graphics();
             // ctrl.beginFill(0x000000, 0.01);
             // ctrl.lineStyle(1, 0x27AD8A);
@@ -82,8 +91,9 @@ const loaderManager = new Loader({
             // ctrl.drawPolygon(path);
             // ctrl.endFill();
             // const ctrl = new Circle(sprite);
-            // const ctrl = new Outline(sprite)
+            // const ctrl = new Rect(sprite)
             playground.addChild(ctrl);
+            console.log(`计算耗时：${Date.now() - startTime}ms`);
         // }
     },
     onError: e => {

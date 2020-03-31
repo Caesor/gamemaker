@@ -12,7 +12,7 @@ export default class Circle extends Outline {
         this.outline.lineStyle(1, 0x27AD8A);
         this.outline.drawCircle(0, 0, radius);
         this.outline.endFill();
-        Object.assign(this.bounds, { width, height, radius });
+        Object.assign(this.bounds, { type:'circle', width, height, radius });
     }
     updateBtns() {
         this.scaleBtn.x = Math.sqrt(2) * this.bounds.radius / 2;

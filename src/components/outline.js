@@ -38,7 +38,7 @@ export default class Outline extends PIXI.Container{
         this.outline = this.drawObject(Object.assign({
             type: 'graphics',
             properties: {
-                interactive: false,
+                interactive: true,
                 cursor: 'move',
                 x: 0,
                 y: 0,
@@ -140,7 +140,7 @@ export default class Outline extends PIXI.Container{
         this.outline.lineStyle(1, 0x27AD8A);
         this.outline.drawRect(-width/2, -height/2, width, height);
         this.outline.endFill();
-        Object.assign(this.bounds, { width, height});
+        Object.assign(this.bounds, { type: 'rect', width, height });
     }
 
     updateBtns() {
