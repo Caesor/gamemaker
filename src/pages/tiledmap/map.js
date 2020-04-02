@@ -65,8 +65,7 @@ void main() {
   float offX = (scaleFactor * offset[0]) + gl_FragCoord.x;
   float offY = (scaleFactor * offset[1]) + (1.0 - gl_FragCoord.y);
 
-  if (int(mod(offX, pitch[0])) == 0 ||
-      int(mod(offY, pitch[1])) == 0) {
+  if (int(mod(offX, pitch[0])) == 0 || int(mod(offY, pitch[1])) == 0) {
     gl_FragColor = vec4(0.0, 0.0, 0.0, 0.5);
   } else {
     gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);

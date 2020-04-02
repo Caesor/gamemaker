@@ -1,5 +1,6 @@
 import * as PIXI from 'pixi.js'
 import Loader from '@/components/loader';
+import ControlBox from '@/components/controlBox';
 import Rect from '@/components/outline';
 import Circle from '@/components/circle';
 import Polygon from '@/components/polygon'
@@ -69,9 +70,9 @@ const loaderManager = new Loader({
             const select = (circle - imageArea) < (rect - imageArea) ? 'circle' : 'rect'
             let ctrl;
             // if(select === 'circle') {
-                ctrl = new Circle(sprite);
+                // ctrl = new Circle(sprite);
             // }else {
-            //     ctrl = new Rect(sprite)
+                ctrl = new ControlBox(sprite)
             // }
             // 1.获取描边数据点，无序的
             // 2.凸包算法找出多边形点集合

@@ -191,8 +191,10 @@ export default class ControlBox extends PIXI.Container{
             const height = Math.max(this.sprite.height + (y - this.pre.y) * 2, MINSCALE);
 
             if(true) {
+                let tmp = this.sprite.width;
                 this.sprite.width = width.toFixed(2);
-                this.sprite.height = Number(width * this.sprite.height / this.sprite.width).toFixed(2);
+                this.sprite.height = Number(width * this.sprite.height / tmp).toFixed(2);
+                // this.sprite.height = height;
             }else {
                 this.sprite.height += (y - this.pre.y) * 2;
             }

@@ -17,7 +17,8 @@
     "pixi-heaven": "^0.2.0",
     "pixi-spine": "^2.1.8",
     "pixi-tilemap": "^2.0.6",
-    "pixi.js": "^5.2.1"
+    "pixi.js": "^5.2.1",
+    "pixiv5-tiled": "^1.1.17"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",

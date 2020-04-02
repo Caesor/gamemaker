@@ -58,13 +58,13 @@ module.exports = {
 	plugins: [
 		new webpack.ProvidePlugin({
 			PIXI: 'pixi.js'
-		  }),
+		}),
 		new CleanWebpackPlugin(),
 		new webpack.ProgressPlugin(),
+		...plugs,
 		new CopyPlugin([
 			{ from: 'src/assets', to: 'assets' }
-		]),
-		...plugs
+		])
 	],
 
 	module: {
@@ -87,34 +87,34 @@ module.exports = {
 					]
 				}
 			},
-			{
-				test: /\.(png|jpg|gif)$/i,
-				use: [
-					{
-						loader: 'url-loader',
-						options: {
-						limit: 8192,
-						},
-					},
-				],
-			}
+			// {
+			// 	test: /\.(png|jpg|gif)$/i,
+			// 	use: [
+			// 		{
+			// 			loader: 'url-loader',
+			// 			options: {
+			// 			limit: 8192,
+			// 			},
+			// 		},
+			// 	],
+			// }
 		]
 	},
 
 	optimization: {
-		splitChunks: {
-			cacheGroups: {
-				vendors: {
-					priority: -10,
-					test: /[\\/]node_modules[\\/]/
-				}
-			},
+		// splitChunks: {
+		// 	cacheGroups: {
+		// 		vendors: {
+		// 			priority: -10,
+		// 			test: /[\\/]node_modules[\\/]/
+		// 		}
+		// 	},
 
-			chunks: 'async',
-			minChunks: 1,
-			minSize: 30000,
-			name: true
-		}
+		// 	chunks: 'async',
+		// 	minChunks: 1,
+		// 	minSize: 30000,
+		// 	name: true
+		// }
 	},
 
 	devServer: {
