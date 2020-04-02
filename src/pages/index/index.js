@@ -77,13 +77,13 @@ for(let sprite in styles) {
             const colorData = ctx.getImageData(0, 0, width, height).data;
 
             const points = getOutline(colorData, width, height);
-            ctx.strokeStyle = "blue";
+            // ctx.strokeStyle = "blue";
 
-            for(let i = 0; i < points.length; i++) {    
-                ctx.beginPath();
-                ctx.arc(points[i].x, points[i].y, 1, 0, 2 * Math.PI);
-                ctx.stroke();
-            }
+            // for(let i = 0; i < points.length; i++) {    
+            //     ctx.beginPath();
+            //     ctx.arc(points[i].x, points[i].y, 1, 0, 2 * Math.PI);
+            //     ctx.stroke();
+            // }
 
             const selectedPoints = convexHullOfPoints(points);
 
