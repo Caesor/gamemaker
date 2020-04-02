@@ -18,5 +18,5 @@
 
 // new TiledMapEditor();
 
-// import './pixiTilemap'
-import './pixi-tiled'
+import './pixiTilemap'
+// import './pixi-tiled'
